@@ -12,11 +12,11 @@ const Stack = createNativeStackNavigator();
 const StackNavigation = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name={navigationConstants.HOME} component={HomeScreen} />
       <Stack.Screen
         name={navigationConstants.ONBOADING}
         component={OnBoadingScreen}
       />
-      <Stack.Screen name={navigationConstants.HOME} component={HomeScreen} />
       <Stack.Screen name={navigationConstants.LIST} component={ListScreen} />
       <Stack.Screen
         name={navigationConstants.DETAILS}
