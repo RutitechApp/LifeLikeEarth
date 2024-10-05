@@ -13,15 +13,6 @@
         android:importantForAccessibility="no"
         android:src="@mipmap/ic_launcher" />
 
-    <TextView
-        android:id="@+id/splash_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/splash_logo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:text="@string/life_like_earth"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp" />
+
 
 </RelativeLayout>

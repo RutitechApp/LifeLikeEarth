@@ -1,10 +1,14 @@
 import React, { useEffect } from "react";
-import { View, StyleSheet, FlatList } from "react-native";
+import { View, StyleSheet, FlatList,Image } from "react-native";
 import CardView from "../../components/common/CardView";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import { fetchExoplanet } from "../../redux/action/exoplanetAction";
 import navigationConstants from "../../utils/navigationConstants";
+import Header from "../../components/common/Header";
+import Container from "../../components/common/Container";
+import CategoryView from "../../components/CategoryView";
+import imageConstants from "../../utils/imageConstants";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
