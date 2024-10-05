@@ -17,6 +17,6 @@ export const OnBoadingData = [
     id: 3,
     title: "Detection of Exoplanet ",
     desc: "Scientists detect exoplanets by observing transits or star wobbles.",
-    imageUrl: imageConstants.exoplanetGif,
+    imageUrl: imageConstants.detectionGif,
   },
 ];

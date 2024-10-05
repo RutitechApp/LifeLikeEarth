@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, SafeAreaView, StyleSheet } from "react-native";
+import { Text, SafeAreaView, StyleSheet, View } from "react-native";
 import { OnBoadingData } from "../../helper/dummyData";
 import colors from "../../utils/colors";
 import FastImage from "react-native-fast-image";
@@ -17,18 +17,21 @@ const OnBoadingScreen = () => {
       <FastImage
         source={OnBoadingData?.[index]?.imageUrl}
         style={style.imageStyle}
+        resizeMode="contain"
       />
-      <Text style={style.textStyle}>{OnBoadingData?.[index].title}</Text>
-      <Text style={style.subTextStyle}>{OnBoadingData?.[index].desc}</Text>
-      <Button
-        title={index === 2 ? "Get Started" : "Next"}
-        buttonStyle={{ marginTop: 70 }}
-        onPress={() => {
-          index === 2
-            ? navigation.navigate(navigationConstants.HOME)
-            : setIndex(index + 1);
-        }}
-      />
+      <View style={{ marginHorizontal: 25, marginTop: 90 }}>
+        <Text style={style.textStyle}>{OnBoadingData?.[index].title}</Text>
+        <Text style={style.subTextStyle}>{OnBoadingData?.[index].desc}</Text>
+        <Button
+          title={index === 2 ? "Get Started" : "Next"}
+          buttonStyle={{ marginTop: 50 }}
+          onPress={() => {
+            index === 2
+              ? navigation.navigate(navigationConstants.HOME)
+              : setIndex(index + 1);
+          }}
+        />
+      </View>
     </SafeAreaView>
   );
 };
@@ -39,12 +42,14 @@ const style = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.black,
+    alignItems: "center",
+    justifyContent: "center",
   },
   imageStyle: {
     height: 342,
     width: 342,
     alignSelf: "center",
-    marginTop: 145,
+    marginTop: 130,
   },
   textStyle: {
     color: colors.white,
@@ -52,7 +57,6 @@ const style = StyleSheet.create({
     fontFamily: fonts.CrimsonTextBold,
     lineHeight: 40,
     textAlign: "center",
-    marginTop: 110,
   },
   subTextStyle: {
     color: colors.white,
