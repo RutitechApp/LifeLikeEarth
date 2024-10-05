@@ -12,15 +12,15 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		2FCD4250447D417DAB7C04B5 /* CrimsonText-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FACE9ACBA8FD428592553431 /* CrimsonText-SemiBoldItalic.ttf */; };
+		435609C1C687443DBA32DFC9 /* CrimsonText-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3828C5D5883E4D3DABAA3617 /* CrimsonText-SemiBold.ttf */; };
+		4A3568AB9B944F43B913DC8A /* CrimsonText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9541794E8B2A47BB8637CF6A /* CrimsonText-Bold.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-LifeLikeEarth-LifeLikeEarthTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-LifeLikeEarth-LifeLikeEarthTests.a */; };
+		7823E873910F43318B51A8F6 /* CrimsonText-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EADC1F694E54A8F92785F8D /* CrimsonText-BoldItalic.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		92C5B662514E7CA6A29B57C0 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 7BFD2C7C0D8B4E530864BC0B /* PrivacyInfo.xcprivacy */; };
-		4A3568AB9B944F43B913DC8A /* CrimsonText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9541794E8B2A47BB8637CF6A /* CrimsonText-Bold.ttf */; };
-		7823E873910F43318B51A8F6 /* CrimsonText-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EADC1F694E54A8F92785F8D /* CrimsonText-BoldItalic.ttf */; };
 		9FB726E54E0F4BF3ACC8EB32 /* CrimsonText-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB946A864BCE475A9DE6A5A1 /* CrimsonText-Italic.ttf */; };
 		D6BCAFA533AC48CE90B37F9B /* CrimsonText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47A8D112213B47E482AEBFC1 /* CrimsonText-Regular.ttf */; };
-		435609C1C687443DBA32DFC9 /* CrimsonText-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3828C5D5883E4D3DABAA3617 /* CrimsonText-SemiBold.ttf */; };
-		2FCD4250447D417DAB7C04B5 /* CrimsonText-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FACE9ACBA8FD428592553431 /* CrimsonText-SemiBoldItalic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,20 +45,20 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = LifeLikeEarth/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = LifeLikeEarth/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-LifeLikeEarth-LifeLikeEarthTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LifeLikeEarth-LifeLikeEarthTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3828C5D5883E4D3DABAA3617 /* CrimsonText-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "CrimsonText-SemiBold.ttf"; path = "../src/assets/fonts/CrimsonText-SemiBold.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-LifeLikeEarth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeLikeEarth.debug.xcconfig"; path = "Target Support Files/Pods-LifeLikeEarth/Pods-LifeLikeEarth.debug.xcconfig"; sourceTree = "<group>"; };
+		47A8D112213B47E482AEBFC1 /* CrimsonText-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "CrimsonText-Regular.ttf"; path = "../src/assets/fonts/CrimsonText-Regular.ttf"; sourceTree = "<group>"; };
+		4EADC1F694E54A8F92785F8D /* CrimsonText-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "CrimsonText-BoldItalic.ttf"; path = "../src/assets/fonts/CrimsonText-BoldItalic.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-LifeLikeEarth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeLikeEarth.release.xcconfig"; path = "Target Support Files/Pods-LifeLikeEarth/Pods-LifeLikeEarth.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-LifeLikeEarth-LifeLikeEarthTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeLikeEarth-LifeLikeEarthTests.debug.xcconfig"; path = "Target Support Files/Pods-LifeLikeEarth-LifeLikeEarthTests/Pods-LifeLikeEarth-LifeLikeEarthTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-LifeLikeEarth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LifeLikeEarth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BFD2C7C0D8B4E530864BC0B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = LifeLikeEarth/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = LifeLikeEarth/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-LifeLikeEarth-LifeLikeEarthTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeLikeEarth-LifeLikeEarthTests.release.xcconfig"; path = "Target Support Files/Pods-LifeLikeEarth-LifeLikeEarthTests/Pods-LifeLikeEarth-LifeLikeEarthTests.release.xcconfig"; sourceTree = "<group>"; };
+		9541794E8B2A47BB8637CF6A /* CrimsonText-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "CrimsonText-Bold.ttf"; path = "../src/assets/fonts/CrimsonText-Bold.ttf"; sourceTree = "<group>"; };
+		CB946A864BCE475A9DE6A5A1 /* CrimsonText-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "CrimsonText-Italic.ttf"; path = "../src/assets/fonts/CrimsonText-Italic.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		9541794E8B2A47BB8637CF6A /* CrimsonText-Bold.ttf */ = {isa = PBXFileReference; name = "CrimsonText-Bold.ttf"; path = "../src/assets/fonts/CrimsonText-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		4EADC1F694E54A8F92785F8D /* CrimsonText-BoldItalic.ttf */ = {isa = PBXFileReference; name = "CrimsonText-BoldItalic.ttf"; path = "../src/assets/fonts/CrimsonText-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		CB946A864BCE475A9DE6A5A1 /* CrimsonText-Italic.ttf */ = {isa = PBXFileReference; name = "CrimsonText-Italic.ttf"; path = "../src/assets/fonts/CrimsonText-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		47A8D112213B47E482AEBFC1 /* CrimsonText-Regular.ttf */ = {isa = PBXFileReference; name = "CrimsonText-Regular.ttf"; path = "../src/assets/fonts/CrimsonText-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		3828C5D5883E4D3DABAA3617 /* CrimsonText-SemiBold.ttf */ = {isa = PBXFileReference; name = "CrimsonText-SemiBold.ttf"; path = "../src/assets/fonts/CrimsonText-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		FACE9ACBA8FD428592553431 /* CrimsonText-SemiBoldItalic.ttf */ = {isa = PBXFileReference; name = "CrimsonText-SemiBoldItalic.ttf"; path = "../src/assets/fonts/CrimsonText-SemiBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FACE9ACBA8FD428592553431 /* CrimsonText-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "CrimsonText-SemiBoldItalic.ttf"; path = "../src/assets/fonts/CrimsonText-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +123,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4558E04AEBAB4E748F797239 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9541794E8B2A47BB8637CF6A /* CrimsonText-Bold.ttf */,
+				4EADC1F694E54A8F92785F8D /* CrimsonText-BoldItalic.ttf */,
+				CB946A864BCE475A9DE6A5A1 /* CrimsonText-Italic.ttf */,
+				47A8D112213B47E482AEBFC1 /* CrimsonText-Regular.ttf */,
+				3828C5D5883E4D3DABAA3617 /* CrimsonText-SemiBold.ttf */,
+				FACE9ACBA8FD428592553431 /* CrimsonText-SemiBoldItalic.ttf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,20 +179,6 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
-		};
-		4558E04AEBAB4E748F797239 /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				9541794E8B2A47BB8637CF6A /* CrimsonText-Bold.ttf */,
-				4EADC1F694E54A8F92785F8D /* CrimsonText-BoldItalic.ttf */,
-				CB946A864BCE475A9DE6A5A1 /* CrimsonText-Italic.ttf */,
-				47A8D112213B47E482AEBFC1 /* CrimsonText-Regular.ttf */,
-				3828C5D5883E4D3DABAA3617 /* CrimsonText-SemiBold.ttf */,
-				FACE9ACBA8FD428592553431 /* CrimsonText-SemiBoldItalic.ttf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
