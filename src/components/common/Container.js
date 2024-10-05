@@ -1,13 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import colors from '../../utils/colors'
 
 const Container = ({children}) => {
   return (
     <View style={styles.container}>
-      <View>
+      <SafeAreaView style = {styles.safeContainer}>
         {children}
-      </View>
+      </SafeAreaView>
     </View>
   )
 }
@@ -19,5 +19,8 @@ const styles = StyleSheet.create({
         flex  : 1,
         backgroundColor : colors.black,
         paddingHorizontal : 16
+    },
+    safeContainer : {
+        flex : 1
     }
 })
