@@ -103,3 +103,19 @@ export const PlannetData = [
     "image": "https://life-like-earth-server.vercel.app/assets/planetsImages/neptune.png"
   }
 ]
+
+
+export const questions = [
+  {
+    id: 1,
+    question: 'At what distance is the TOI-733 system located from Earth compared to the other systems we discussed?',
+    options: ['Paris', 'London', 'Berlin', 'Rome'],
+    correctAnswer: 'Paris',
+  },
+  {
+    id: 2,
+    question: 'What is the largest planet in our solar system?',
+    options: ['Earth', 'Saturn', 'Jupiter', 'Uranus'],
+    correctAnswer: 'Jupiter',
+  },
+];

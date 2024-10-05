@@ -3,6 +3,6 @@ export default {
   HOME: "Home",
   DETAILS: "Details",
   LIST: "List",
-  QUIZ: "Quiz",
+  QUIZ: "QuizScreen",
   REWARDS: "Rewards",
 };

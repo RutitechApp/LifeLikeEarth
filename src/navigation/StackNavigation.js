@@ -5,8 +5,8 @@ import navigationConstants from "../utils/navigationConstants";
 import HomeScreen from "../screens/home";
 import DetailsScreen from "../screens/details";
 import ListScreen from "../screens/list";
-import QuizScreen from "../screens/quiz";
 import RewardsScreen from "../screens/rewards";
+import { QuizScreen } from "../screens/quiz";
 
 const Stack = createNativeStackNavigator();
 const StackNavigation = () => {
