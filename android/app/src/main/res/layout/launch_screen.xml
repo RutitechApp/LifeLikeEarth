@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:importantForAccessibility="no"
         android:src="@mipmap/ic_launcher" />
 
     <TextView
@@ -19,7 +20,7 @@
         android:layout_below="@id/splash_logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:text="Life Like Earth"
+        android:text="@string/life_like_earth"
         android:textColor="#FFFFFF"
         android:textSize="20sp" />
 

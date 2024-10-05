@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AppNavigation from "./src/navigation/AppNavigation";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
