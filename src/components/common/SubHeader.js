@@ -35,5 +35,6 @@ const style = StyleSheet.create({
     flexDirection: "row",
     marginHorizontal: 24,
     justifyContent: "space-between",
+    alignItems: "center",
   },
 });

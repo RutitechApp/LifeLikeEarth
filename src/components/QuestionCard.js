@@ -5,7 +5,6 @@ import {
   FlatList,
   Dimensions,
   StyleSheet,
-  ImageBackground,
   TouchableOpacity,
 } from "react-native";
 import { questions } from "../helper/dummyData";
@@ -22,12 +21,11 @@ export const QuestionCard = ({ question, onSelectOption, score, data }) => {
   const screenDimensions = Dimensions.get("screen");
   const styles = getStyles(screenDimensions);
   const navigation = useNavigation();
-  const [correctOption, setCorrectOption] = useState(false)
+  const [correctOption, setCorrectOption] = useState(false);
   const onTapOnOption = (item) => {
-    console.log(item, question.correctAnswer)
-    setCorrectOption(item == question.correctAnswer)
-    onSelectOption(item)
-  }
+    setCorrectOption(item == question.correctAnswer);
+    onSelectOption(item);
+  };
   return (
     <Container>
       <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -35,48 +33,42 @@ export const QuestionCard = ({ question, onSelectOption, score, data }) => {
       </TouchableOpacity>
       <View style={styles.container}>
         <View style={styles.gameContainer}>
-          <ImageBackground
-            source={imageConstants.blurCapsul}
-            style={styles.imageback}
-            resizeMode="contain"
-          >
-            {question?.id ? (
-              <>
-                <FastImage
-                  source={
-                    data?.planetImage === undefined
-                      ? imageConstants.logo
-                      : {
+          {question?.id ? (
+            <>
+              <FastImage
+                source={
+                  data?.planetImage === undefined
+                    ? imageConstants.logo
+                    : {
                         uri: data?.planetImage,
                       }
-                  }
-                  style={styles.iStyle}
-                  resizeMode="contain"
+                }
+                style={styles.iStyle}
+                resizeMode="contain"
+              />
+              <Text style={styles.question}>{question?.question}</Text>
+              <View style={styles.buttonContainer}>
+                <FlatList
+                  data={question.options}
+                  renderItem={({ item, index }) => (
+                    <OptionButton
+                      buttonText={item}
+                      key={`${item}-${index}`}
+                      onPress={() => onSelectOption(item)}
+                      type="primary"
+                      fullWidth
+                      ans={question.correctAnswer}
+                    />
+                  )}
+                  scrollEnabled={false}
                 />
-                <Text style={styles.question}>{question?.question}</Text>
-                <View style={styles.buttonContainer}>
-                  <FlatList
-                    data={question.options}
-                    renderItem={({ item, index }) => (
-                      <OptionButton
-                        buttonText={item}
-                        key={`${item}-${index}`}
-                        onPress={() => onTapOnOption(item)}
-                        type={correctOption}
-                        ans={question.correctAnswer}
-                        fullWidth
-                      />
-                    )}
-                    scrollEnabled={false}
-                  />
-                </View>
-              </>
-            ) : (
-              <Text>
-                Quiz complete! Your score is {score}/{questions.length}
-              </Text>
-            )}
-          </ImageBackground>
+              </View>
+            </>
+          ) : (
+            <Text>
+              Quiz complete! Your score is {score}/{questions.length}
+            </Text>
+          )}
         </View>
       </View>
     </Container>
@@ -104,7 +96,10 @@ const getStyles = (screenDimensions) => {
       justifyContent: "space-evenly",
       alignSelf: "center",
       alignContent: "center",
-      height: "81%",
+      backgroundColor: "rgba(255,255,255,0.1)",
+      borderTopRightRadius: 50,
+      borderBottomLeftRadius: 50,
+      paddingVertical: 10,
     },
     title: {
       fontWeight: "bold",
@@ -174,12 +169,12 @@ const getStyles = (screenDimensions) => {
       marginHorizontal: 16,
     },
     iStyle: {
-      height: 200,
-      width: 200,
+      height: 150,
+      width: 150,
       borderRadius: 100,
       overflow: "hidden",
       alignSelf: "center",
-      marginTop: 20,
+      // marginTop: 20,
       marginBottom: 40,
     },
   });

@@ -1,42 +1,43 @@
 import React, { useEffect, useState, useRef } from "react";
-import { 
-  Dimensions, 
-  StyleSheet, 
-  Text, 
-  View, 
-  Animated, 
-  Modal, 
-  TextInput, 
+import {
+  Dimensions,
+  StyleSheet,
+  Text,
+  View,
+  Animated,
+  Modal,
+  TextInput,
   TouchableOpacity,
   Easing,
-  ImageBackground
+  ImageBackground,
 } from "react-native";
 import FastImage from "react-native-fast-image";
 import { useDispatch, useSelector } from "react-redux";
-import LinearGradient from "react-native-linear-gradient";
 import colors from "../utils/colors";
 import Container from "./common/Container";
 import imageConstants from "../utils/imageConstants";
 import { userAction } from "../redux/action/userAction";
 import { useNavigation } from "@react-navigation/native";
 import navigationConstants from "../utils/navigationConstants";
+import { questions } from "../helper/dummyData";
 
 const FinishView = ({ finalScore }) => {
-  const dispatch = useDispatch()
-  const navigation = useNavigation()
-  const uData = useSelector((state) => state?.user?.userData)
+  const dispatch = useDispatch();
+  const navigation = useNavigation();
+  const uData = useSelector((state) => state?.user?.userData);
   const screenDimensions = Dimensions.get("screen");
   const styles = getStyles(screenDimensions);
   const quiz = useSelector((state) => state?.quiz?.quizData?.quizData);
-  const quizItems = quiz ? quiz : [];
-  const percentageScore =  70.00//((finalScore / quizItems.length) * 100).toFixed(2);
+  const quizItems = quiz ? quiz : questions;
+  const percentageScore = ((finalScore / quizItems.length) * 100).toFixed(2);
 
+  console.log({ finalScore, quizItems });
   // Animation state
   const [isModalVisible, setIsModalVisible] = useState(false);
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const [isImageVisible, setIsImageVisible] = useState(false);
-  const [userName, setUserName] = useState('');
-  const [userAge, setUserAge] = useState('');
+  const [userName, setUserName] = useState("");
+  const [userAge, setUserAge] = useState("");
   const scaleAnim = useRef(new Animated.Value(1)).current; // Button scale animation
 
   useEffect(() => {
@@ -49,11 +50,12 @@ const FinishView = ({ finalScore }) => {
           useNativeDriver: true,
         }).start();
       }, 1000);
-
       const modalTimer = setTimeout(() => {
-       uData ? navigation.navigate(navigationConstants.PASSPORT)  : setIsModalVisible(true);
+        setIsModalVisible(true);
+        // uData
+        //   ? navigation.navigate(navigationConstants.PASSPORT)
+        //   : setIsModalVisible(true);
       }, 3000);
-
       return () => {
         clearTimeout(imageTimer);
         clearTimeout(modalTimer);
@@ -61,33 +63,14 @@ const FinishView = ({ finalScore }) => {
     }
   }, [percentageScore]);
 
-  const handlePressIn = () => {
-    Animated.spring(scaleAnim, {
-      toValue: 0.9,
-      friction: 3,
-      useNativeDriver: true,
-    }).start();
-  };
-
-  const handlePressOut = () => {
-    Animated.spring(scaleAnim, {
-      toValue: 1,
-      friction: 3,
-      useNativeDriver: true,
-    }).start();
-  };
-
   return (
     <Container>
-      <LinearGradient
-        colors={['#0f0c29', '#302b63', '#24243e']}
-        style={styles.gradientBackground}
-      />
-      
       <View style={styles.container}>
         <View style={styles.resultContainer}>
-          <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-            <Text style={styles.endTitle}>Mission Complete!</Text>
+          <View
+            style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+          >
+            <Text style={styles.endTitle}>Quiz Completed!</Text>
             <Text style={styles.scoreAnnouncement}>
               You scored {finalScore} out of {quizItems.length}
             </Text>
@@ -116,8 +99,10 @@ const FinishView = ({ finalScore }) => {
                 visible={isModalVisible}
               >
                 <View style={styles.modalContainer}>
-                  <View style={styles.modalContent} >
-                    <Text style={styles.modalTitle}>Enter Your Astronaut Details</Text>
+                  <View style={styles.modalContent}>
+                    <Text style={styles.modalTitle}>
+                      Enter Your Astronaut Details
+                    </Text>
                     <TextInput
                       style={styles.input}
                       placeholder="Name"
@@ -131,25 +116,32 @@ const FinishView = ({ finalScore }) => {
                       onChangeText={setUserAge}
                       keyboardType="numeric"
                     />
-                      <TouchableOpacity
-                        style={styles.submitButton}
-                        onPress={() => {setIsModalVisible(false); 
-                          const obj = {
+                    <TouchableOpacity
+                      style={styles.submitButton}
+                      onPress={() => {
+                        setIsModalVisible(false);
+                        const obj = {
                           userName: userName,
-                          age:userAge
-                        }
-                      !uData && dispatch(userAction(obj))
-                      navigation.navigate(navigationConstants.PASSPORT)
+                          age: userAge,
+                        };
+                        !uData && dispatch(userAction(obj));
+                        navigation.navigate(navigationConstants.PASSPORT);
                       }}
-                      >
-                        <Text style={styles.submitButtonText}>Launch</Text>
-                      </TouchableOpacity>
+                    >
+                      <Text style={styles.submitButtonText}>Launch</Text>
+                    </TouchableOpacity>
                   </View>
                 </View>
               </Modal>
             </>
           ) : (
-            <View style={{ justifyContent: "center", alignItems: "center", flex: 3 }}>
+            <View
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+                flex: 3,
+              }}
+            >
               <Text style={styles.sorryMessage}>
                 Mission Failed. Try Again!
               </Text>
@@ -195,7 +187,7 @@ const getStyles = (screenDimensions) => {
     scoreAnnouncement: {
       fontWeight: "bold",
       fontSize: isTablet ? 60 : 32,
-      color: colors.red,
+      color: colors.white,
       marginTop: 10,
       textShadowColor: "rgba(0, 0, 0, 0.3)",
       textShadowOffset: { width: 2, height: 2 },
@@ -272,15 +264,14 @@ const getStyles = (screenDimensions) => {
       shadowOpacity: 0.3,
       shadowRadius: 5,
       elevation: 8,
-      justifyContent : 'center',
-      alignItems : 'center'
+      justifyContent: "center",
+      alignItems: "center",
     },
     submitButtonText: {
       color: "blue",
       fontSize: 24,
       fontWeight: "bold",
       textAlign: "center",
-
     },
     animatedImageContainer: {
       justifyContent: "center",

@@ -27,8 +27,6 @@ const HomeScreen = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state?.exoplanet?.exoplanetData);
 
-  console.log("data", data);
-
   useEffect(() => {
     fetchData();
   }, []);
@@ -54,11 +52,21 @@ const HomeScreen = () => {
     <Container>
       <Header />
       <ScrollView>
-        <Image
-          source={imageConstants.bannerImage}
-          style={style.banner}
-          resizeMode="contain"
-        />
+        <View style={{ marginHorizontal: 16 }}>
+          <ImageBackground
+            source={imageConstants.bannerImage}
+            style={style.banner}
+            resizeMode="contain"
+          >
+            <Text
+              style={style.ttStyle}
+              onPress={() => navigation.navigate(navigationConstants.SPACE)}
+            >
+              Open Your Space
+            </Text>
+          </ImageBackground>
+        </View>
+
         <FlatList
           data={typeData}
           renderItem={renderItem}
@@ -106,8 +114,9 @@ export default HomeScreen;
 const style = StyleSheet.create({
   banner: {
     height: 200,
-    width: "90%",
+    width: "100%",
     alignSelf: "center",
+    justifyContent: "center",
   },
   typeFlatListViewStyle: {
     alignItems: "center",
@@ -145,5 +154,14 @@ const style = StyleSheet.create({
     color: colors.white,
     lineHeight: 15,
     opacity: 0.5,
+  },
+  ttStyle: {
+    fontSize: 16,
+    color: colors.white,
+    fontFamily: fonts.SpaceGroteskBold,
+    marginTop: 55,
+    textAlign: "center",
+    opacity: 0.8,
+    textDecorationLine: "underline",
   },
 });

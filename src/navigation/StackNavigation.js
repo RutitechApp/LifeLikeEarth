@@ -9,16 +9,18 @@ import RewardsScreen from "../screens/rewards";
 import { QuizScreen } from "../screens/quiz";
 import PassPortScreen from "../screens/passPort";
 import PalnetScreen from "../screens/planet";
+import SpaceScreen from "../screens/space";
+import PassPortListScreen from "../screens/passportList";
 
 const Stack = createNativeStackNavigator();
 const StackNavigation = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name={navigationConstants.HOME} component={HomeScreen} />
       <Stack.Screen
         name={navigationConstants.ONBOADING}
         component={OnBoadingScreen}
       />
+      <Stack.Screen name={navigationConstants.HOME} component={HomeScreen} />
       <Stack.Screen name={navigationConstants.LIST} component={ListScreen} />
       <Stack.Screen
         name={navigationConstants.DETAILS}
@@ -36,6 +38,11 @@ const StackNavigation = () => {
       <Stack.Screen
         name={navigationConstants.PLANET}
         component={PalnetScreen}
+      />
+      <Stack.Screen name={navigationConstants.SPACE} component={SpaceScreen} />
+      <Stack.Screen
+        name={navigationConstants.PASSPORTLIST}
+        component={PassPortListScreen}
       />
     </Stack.Navigator>
   );

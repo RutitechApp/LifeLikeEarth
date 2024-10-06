@@ -4,17 +4,22 @@ import iconConstants from "../../utils/iconConstants";
 import { useNavigation } from "@react-navigation/native";
 import navigationConstants from "../../utils/navigationConstants";
 import imageConstants from "../../utils/imageConstants";
-import { questions } from "../../helper/dummyData";
 
 const Header = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <TouchableOpacity>
-        <Image source={imageConstants.logo} style={styles.ic_notification} />
+      <TouchableOpacity
+        onPress={() => navigation.navigate(navigationConstants.PASSPORT)}
+      >
+        <Image
+          source={imageConstants.logo}
+          style={styles.ic_notification}
+          resizeMode="contain"
+        />
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => navigation.navigate(navigationConstants.QUIZ )}
+        onPress={() => navigation.navigate(navigationConstants.QUIZ)}
       >
         <Image source={iconConstants.quiz} style={styles.ic_notification} />
       </TouchableOpacity>
@@ -31,7 +36,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 23,
   },
   ic_notification: {
-    height: 50,
-    width: 50,
+    height: 38,
+    width: 38,
   },
 });

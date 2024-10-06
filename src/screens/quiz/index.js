@@ -14,7 +14,6 @@ export const QuizScreen = () => {
   const dispatch = useDispatch();
   const quiz = useSelector((state) => state?.quiz?.quizData?.quizData);
   const quizItems = quiz ? quiz : questions;
-  console.log("quiz", quiz);
   useEffect(() => {
     route?.params?.data && fetchData();
   }, []);
@@ -36,21 +35,20 @@ export const QuizScreen = () => {
 
     const timer = setTimeout(() => {
       setCurrentQuestion(currentQuestion + 1);
-    }, 3000);
+    }, 1000);
 
     return () => clearTimeout(timer);
-
   };
 
   return currentQuestion == quizItems?.length ? (
     <FinishView finalScore={score} />
   ) : (
-    // <QuestionCard
-    //   question={quizItems[currentQuestion]}
-    //   onSelectOption={handleSelectOption}
-    //   score={score}
-    //   data={route?.params?.data}
-    // />
-    <FinishView finalScore={score} />
+    <QuestionCard
+      question={quizItems[currentQuestion]}
+      onSelectOption={handleSelectOption}
+      score={score}
+      data={route?.params?.data}
+    />
+    // <FinishView finalScore={score} />
   );
 };

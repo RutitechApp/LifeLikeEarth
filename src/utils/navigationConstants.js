@@ -7,4 +7,6 @@ export default {
   REWARDS: "Rewards",
   PASSPORT: "PassPortScreen",
   PLANET: "Planet",
+  SPACE: "Space",
+  PASSPORTLIST: "PassPortList",
 };
