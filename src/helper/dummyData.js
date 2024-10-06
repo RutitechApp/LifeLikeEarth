@@ -47,7 +47,7 @@ export const PlannetData = [
       "The Sun is the star at the heart of our solar system. Its gravity holds the solar system together, keeping everything — from the biggest planets to the smallest bits of debris — in its orbit.",
     plantType: "heliophytes",
     image:
-      "https://life-like-earth-server.vercel.app/assets/planetsImages/thesun.png",
+      "https://life-like-earth-server.vercel.app/assets/planetsImages/thesun.gif",
   },
   {
     plantName: "Mercury",
@@ -55,7 +55,7 @@ export const PlannetData = [
       "Mercury is the closest planet to the Sun, and the smallest planet in our solar system - only slightly larger than Earth's Moon.",
     plantType: "terrestrial",
     image:
-      "https://life-like-earth-server.vercel.app/assets/planetsImages/Mercury.png",
+      "https://life-like-earth-server.vercel.app/assets/planetsImages/mercury.gif",
   },
   {
     plantName: "Venus",
@@ -63,7 +63,7 @@ export const PlannetData = [
       "Venus is the second planet from the Sun, and the sixth largest planet. It’s the hottest planet in our solar system.",
     plantType: "terrestrial",
     image:
-      "https://life-like-earth-server.vercel.app/assets/planetsImages/venus.png",
+      "https://life-like-earth-server.vercel.app/assets/planetsImages/venus.gif",
   },
   {
     plantName: "Earth",
@@ -71,7 +71,7 @@ export const PlannetData = [
       "Earth plants, or terrestrial plants, are plants that grow on land. They have adaptations like roots, stems, leaves, and flowers for survival in terrestrial environments.",
     plantType: "terrestrial",
     image:
-      "https://life-like-earth-server.vercel.app/assets/planetsImages/earth.png",
+      "https://life-like-earth-server.vercel.app/assets/planetsImages/earth.gif",
   },
   {
     plantName: "Jupiter",
@@ -79,7 +79,7 @@ export const PlannetData = [
       "Jupiter is the fifth planet from the Sun, and the largest in the solar system – more than twice as massive as the other planets combined.",
     plantType: "gas giant",
     image:
-      "https://life-like-earth-server.vercel.app/assets/planetsImages/Jupiter.png",
+      "https://life-like-earth-server.vercel.app/assets/planetsImages/Jupiter.gif",
   },
   {
     plantName: "Mars",
@@ -87,7 +87,7 @@ export const PlannetData = [
       "Mars is the fourth planet from the Sun, and the seventh largest. It’s the only planet we know of inhabited entirely by robots.",
     plantType: "terrestrial",
     image:
-      "https://life-like-earth-server.vercel.app/assets/planetsImages/mars.png",
+      "https://life-like-earth-server.vercel.app/assets/planetsImages/mars.gif",
   },
   {
     plantName: "Uranus",
@@ -95,7 +95,7 @@ export const PlannetData = [
       "Uranus is the seventh planet from the Sun, and the third largest planet in our solar system. It appears to spin sideways.",
     plantType: "ice giants",
     image:
-      "https://life-like-earth-server.vercel.app/assets/planetsImages/uranus.png",
+      "https://life-like-earth-server.vercel.app/assets/planetsImages/uranus.gif",
   },
   {
     plantName: "Saturn",
@@ -103,7 +103,7 @@ export const PlannetData = [
       "Saturn is the sixth planet from the Sun, and the second largest in the solar system. It’s surrounded by beautiful rings.",
     plantType: "gas-giant",
     image:
-      "https://life-like-earth-server.vercel.app/assets/planetsImages/saturn.png",
+      "https://life-like-earth-server.vercel.app/assets/planetsImages/saturn.gif",
   },
   {
     plantName: "Neptune",
@@ -111,7 +111,7 @@ export const PlannetData = [
       "Neptune is the eighth, and most distant planet from the Sun. It’s the fourth-largest, and the first planet discovered with math.",
     plantType: "ice giants",
     image:
-      "https://life-like-earth-server.vercel.app/assets/planetsImages/neptune.png",
+      "https://life-like-earth-server.vercel.app/assets/planetsImages/neptune.gif",
   },
 ];
 

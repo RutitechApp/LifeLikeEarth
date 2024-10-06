@@ -1,11 +1,5 @@
-import {
-  Image,
-  Pressable,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-} from "react-native";
 import React from "react";
+import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 import iconConstants from "../../utils/iconConstants";
 import { useNavigation } from "@react-navigation/native";
 import navigationConstants from "../../utils/navigationConstants";
@@ -21,10 +15,7 @@ const Header = () => {
       <TouchableOpacity
         onPress={() => navigation.navigate(navigationConstants.QUIZ)}
       >
-        <Image
-          source={iconConstants.notification}
-          style={styles.ic_notification}
-        />
+        <Image source={iconConstants.quiz} style={styles.ic_notification} />
       </TouchableOpacity>
     </View>
   );

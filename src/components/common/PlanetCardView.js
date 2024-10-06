@@ -29,7 +29,7 @@ const PlanetCardView = ({ data, onPress }) => {
       <Text style={style.subTextStyle} numberOfLines={3}>
         {data?.description}
       </Text>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={onPress}>
         <FastImage
           source={imageConstants.arrow}
           style={style.arrowStyle}

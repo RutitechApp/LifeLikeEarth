@@ -8,7 +8,7 @@ const Container = ({ children }) => {
   return (
     <View style={styles.container}>
       <FastImage
-        source={imageConstants.statGif}
+        source={imageConstants.bgImage}
         style={StyleSheet.absoluteFill}
       >
         <SafeAreaView style={styles.safeContainer}>{children}</SafeAreaView>

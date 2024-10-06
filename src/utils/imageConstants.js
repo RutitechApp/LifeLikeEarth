@@ -20,4 +20,6 @@ export default {
   capCard: require("../assets/images/CapCardImage.png"),
   eCardImage: require("../assets/images/ECardImage.png"),
   arrow: require("../assets/images/Arrow.png"),
+  detailsCard: require("../assets/images/DetailsCard.png"),
+  bgImage: require("../assets/images/BgImage.png"),
 };

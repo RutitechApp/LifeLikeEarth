@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import FinishView from "../../components/FinishView";
 import { QuestionCard } from "../../components/QuestionCard";
-import { questions } from "../../helper/dummyData";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchExoplanet } from "../../redux/action/exoplanetAction";
 import { fetchQuiz } from "../../redux/action/quizAction";
+import { useRoute } from "@react-navigation/native";
 
 export const QuizScreen = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
+  const route = useRoute();
   const dispatch = useDispatch();
   const quiz = useSelector((state) => state?.quiz?.quizData?.quizData);
-  console.log("quiz", quiz);
   useEffect(() => {
     fetchData();
   }, []);
@@ -19,7 +19,7 @@ export const QuizScreen = () => {
   const fetchData = () => {
     dispatch(fetchExoplanet());
     const obj = {
-      id: "66f28062e81a4c7efbc49994",
+      id: route?.params?.data?._id,
       onSuccess: () => {},
       onFail: () => {},
     };
@@ -40,6 +40,7 @@ export const QuizScreen = () => {
       question={quiz[currentQuestion]}
       onSelectOption={handleSelectOption}
       score={score}
+      data={route?.params?.data}
     />
   );
 };
