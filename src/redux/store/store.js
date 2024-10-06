@@ -5,6 +5,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { thunk } from "redux-thunk";
 import exoplanetReducer from "../reducer/exoplanetReducer";
 import quizReducer from "../reducer/quizReducer";
+import userReducer from "../reducer/userReducer";
 
 const persistConfig = {
   key: "root",
@@ -15,6 +16,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   exoplanet: exoplanetReducer,
   quiz: quizReducer,
+  user: userReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

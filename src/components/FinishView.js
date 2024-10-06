@@ -1,53 +1,160 @@
-import React from "react";
-import { Dimensions, StyleSheet, Text, View } from "react-native";
+import React, { useEffect, useState, useRef } from "react";
+import { 
+  Dimensions, 
+  StyleSheet, 
+  Text, 
+  View, 
+  Animated, 
+  Modal, 
+  TextInput, 
+  TouchableOpacity,
+  Easing,
+  ImageBackground
+} from "react-native";
 import FastImage from "react-native-fast-image";
-import imageConstants from "../utils/imageConstants";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import LinearGradient from "react-native-linear-gradient";
 import colors from "../utils/colors";
 import Container from "./common/Container";
+import imageConstants from "../utils/imageConstants";
+import { userAction } from "../redux/action/userAction";
+import { useNavigation } from "@react-navigation/native";
+import navigationConstants from "../utils/navigationConstants";
 
 const FinishView = ({ finalScore }) => {
+  const dispatch = useDispatch()
+  const navigation = useNavigation()
+  const uData = useSelector((state) => state?.user?.userData)
   const screenDimensions = Dimensions.get("screen");
   const styles = getStyles(screenDimensions);
   const quiz = useSelector((state) => state?.quiz?.quizData?.quizData);
-  const quizItems = quiz ? quiz : questions;
-  const percentageScore = ((finalScore / quizItems.length) * 100).toFixed(2);
+  const quizItems = quiz ? quiz : [];
+  const percentageScore =  70.00//((finalScore / quizItems.length) * 100).toFixed(2);
 
+  // Animation state
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const [isImageVisible, setIsImageVisible] = useState(false);
+  const [userName, setUserName] = useState('');
+  const [userAge, setUserAge] = useState('');
+  const scaleAnim = useRef(new Animated.Value(1)).current; // Button scale animation
+
+  useEffect(() => {
+    if (percentageScore >= 70) {
+      const imageTimer = setTimeout(() => {
+        setIsImageVisible(true);
+        Animated.timing(fadeAnim, {
+          toValue: 1,
+          duration: 1000,
+          useNativeDriver: true,
+        }).start();
+      }, 1000);
+
+      const modalTimer = setTimeout(() => {
+       uData ? navigation.navigate(navigationConstants.PASSPORT)  : setIsModalVisible(true);
+      }, 3000);
+
+      return () => {
+        clearTimeout(imageTimer);
+        clearTimeout(modalTimer);
+      };
+    }
+  }, [percentageScore]);
+
+  const handlePressIn = () => {
+    Animated.spring(scaleAnim, {
+      toValue: 0.9,
+      friction: 3,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const handlePressOut = () => {
+    Animated.spring(scaleAnim, {
+      toValue: 1,
+      friction: 3,
+      useNativeDriver: true,
+    }).start();
+  };
 
   return (
     <Container>
+      <LinearGradient
+        colors={['#0f0c29', '#302b63', '#24243e']}
+        style={styles.gradientBackground}
+      />
+      
       <View style={styles.container}>
         <View style={styles.resultContainer}>
-          <View
-            style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-          >
-            <Text style={styles.endTitle}>All questions answered!</Text>
+          <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+            <Text style={styles.endTitle}>Mission Complete!</Text>
             <Text style={styles.scoreAnnouncement}>
               You scored {finalScore} out of {quizItems.length}
             </Text>
-
             <Text style={styles.scorePercentage}>
-              That's {percentageScore}%!
+              Score: {percentageScore}%
             </Text>
           </View>
-          <View
-            style={{
-              justifyContent: "center",
-              alignItems: "center",
-              flex: 3,
-            }}
-          >
-            <FastImage
-              style={{
-                width: "80%",
-                aspectRatio: 1 / 1,
-                borderRadius: 10,
-                overflow: "hidden",
-              }}
-              source={imageConstants.rewords}
-              resizeMode={FastImage.resizeMode.contain}
-            />
-          </View>
+
+          {percentageScore >= 70 ? (
+            <>
+              <View style={styles.animatedImageContainer}>
+                {isImageVisible && (
+                  <Animated.View style={{ opacity: fadeAnim }}>
+                    <FastImage
+                      style={styles.rewardImage}
+                      source={imageConstants.rewords}
+                      resizeMode={FastImage.resizeMode.contain}
+                    />
+                  </Animated.View>
+                )}
+              </View>
+
+              <Modal
+                transparent={true}
+                animationType="slide"
+                visible={isModalVisible}
+              >
+                <View style={styles.modalContainer}>
+                  <View style={styles.modalContent} >
+                    <Text style={styles.modalTitle}>Enter Your Astronaut Details</Text>
+                    <TextInput
+                      style={styles.input}
+                      placeholder="Name"
+                      value={userName}
+                      onChangeText={setUserName}
+                    />
+                    <TextInput
+                      style={styles.input}
+                      placeholder="Age"
+                      value={userAge}
+                      onChangeText={setUserAge}
+                      keyboardType="numeric"
+                    />
+                      <TouchableOpacity
+                        style={styles.submitButton}
+                        onPress={() => {setIsModalVisible(false); 
+                          const obj = {
+                          userName: userName,
+                          age:userAge
+                        }
+                      !uData && dispatch(userAction(obj))
+                      navigation.navigate(navigationConstants.PASSPORT)
+                      }}
+                      >
+                        <Text style={styles.submitButtonText}>Launch</Text>
+                      </TouchableOpacity>
+                  </View>
+                </View>
+              </Modal>
+            </>
+          ) : (
+            <View style={{ justifyContent: "center", alignItems: "center", flex: 3 }}>
+              <Text style={styles.sorryMessage}>
+                Mission Failed. Try Again!
+              </Text>
+            </View>
+          )}
         </View>
       </View>
     </Container>
@@ -66,28 +173,33 @@ const getStyles = (screenDimensions) => {
       alignItems: "center",
       backgroundColor: "transparent",
     },
-    subtitle: {
-      fontWeight: "bold",
-      fontSize: isTablet ? 30 : 20,
-      marginBottom: 5,
+    // Apply a gradient background for more interaction
+    gradientBackground: {
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      justifyContent: "center",
+      alignItems: "center",
+      zIndex: -1,
     },
     endTitle: {
       fontWeight: "bold",
-      fontSize: isTablet ? 40 : 20,
+      fontSize: isTablet ? 40 : 24,
       color: colors.white,
+      textShadowColor: "rgba(0, 0, 0, 0.3)",
+      textShadowOffset: { width: 2, height: 2 },
+      textShadowRadius: 3,
     },
     scoreAnnouncement: {
       fontWeight: "bold",
-      fontSize: isTablet ? 60 : 30,
-      color: "red",
-    },
-    awardImg: {
-      width: 150,
-      height: 200,
-      resizeMode: "contain",
-    },
-    bold: {
-      fontWeight: "bold",
+      fontSize: isTablet ? 60 : 32,
+      color: colors.red,
+      marginTop: 10,
+      textShadowColor: "rgba(0, 0, 0, 0.3)",
+      textShadowOffset: { width: 2, height: 2 },
+      textShadowRadius: 3,
     },
     resultContainer: {
       flex: 1,
@@ -95,29 +207,98 @@ const getStyles = (screenDimensions) => {
       alignItems: "center",
       width: "100%",
     },
-    listContainer: {
-      flex: 1,
-      marginTop: 10,
-      width: "100%",
-      padding: 20,
-      marginBottom: -40,
-    },
-    reviewAnswer: {
-      fontSize: isTablet ? 20 : 14,
-      marginVertical: 5,
-    },
-    buttonContainer: {
-      display: "flex",
-      flexDirection: "row",
-      justifyContent: "space-between",
-      alignItems: "center",
-    },
     scorePercentage: {
       fontWeight: "bold",
       fontSize: isTablet ? 40 : 24,
       marginTop: 10,
+      color: colors.blue,
+      textShadowColor: "rgba(0, 0, 0, 0.3)",
+      textShadowOffset: { width: 2, height: 2 },
+      textShadowRadius: 3,
+    },
+    sorryMessage: {
+      fontWeight: "bold",
+      fontSize: isTablet ? 40 : 24,
+      color: "orange",
+      textShadowColor: "rgba(0, 0, 0, 0.2)",
+      textShadowOffset: { width: 2, height: 2 },
+      textShadowRadius: 3,
+    },
+    modalContainer: {
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: "rgba(0, 0, 0, 0.6)",
+    },
+    modalContent: {
+      backgroundColor: "white",
+      borderRadius: 15,
+      padding: 25,
+      width: "80%",
+      alignItems: "center",
+      shadowColor: "#000",
+      shadowOffset: {
+        width: 0,
+        height: 4,
+      },
+      shadowOpacity: 0.3,
+      shadowRadius: 4.65,
+      elevation: 8,
+    },
+    modalTitle: {
+      fontSize: 20,
+      fontWeight: "bold",
+      marginBottom: 20,
+      color: colors.darkBlue,
+      textAlign: "center",
+    },
+    input: {
+      width: "100%",
+      padding: 12,
+      borderWidth: 1,
+      borderColor: colors.lightGray,
+      borderRadius: 10,
+      marginBottom: 20,
+      fontSize: 16,
+      backgroundColor: colors.lightBackground,
+    },
+    submitButton: {
+      backgroundColor: colors.primaryBlue,
+      // paddingVertical: 12,
+      // paddingHorizontal: 30,
+      // borderRadius: 10,
+      shadowColor: "#000",
+      shadowOffset: { width: 0, height: 4 },
+      shadowOpacity: 0.3,
+      shadowRadius: 5,
+      elevation: 8,
+      justifyContent : 'center',
+      alignItems : 'center'
+    },
+    submitButtonText: {
       color: "blue",
+      fontSize: 24,
+      fontWeight: "bold",
+      textAlign: "center",
+
+    },
+    animatedImageContainer: {
+      justifyContent: "center",
+      alignItems: "center",
+      flex: 3,
+    },
+    rewardImage: {
+      width: "80%",
+      aspectRatio: 1 / 1,
+      borderRadius: 15,
+      overflow: "hidden",
+      shadowColor: "#000",
+      shadowOffset: { width: 0, height: 4 },
+      shadowOpacity: 0.3,
+      shadowRadius: 5,
+      elevation: 8,
     },
   });
+
   return styles;
 };

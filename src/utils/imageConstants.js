@@ -22,6 +22,7 @@ export default {
   arrow: require("../assets/images/Arrow.png"),
   detailsCard: require("../assets/images/DetailsCard.png"),
   bgImage: require("../assets/images/BgImage.png"),
-  plan : require('../assets/images/Plan.png')
-
+  plan : require('../assets/images/Plan.png'),
+  galaxy : require('../assets/images/Galaxy.png'),
+stempSE : require('../assets/images/stemp_superEarth.png')
 };
