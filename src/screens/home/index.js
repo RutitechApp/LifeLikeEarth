@@ -27,6 +27,8 @@ const HomeScreen = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state?.exoplanet?.exoplanetData);
 
+  console.log("data", data);
+
   useEffect(() => {
     fetchData();
   }, []);

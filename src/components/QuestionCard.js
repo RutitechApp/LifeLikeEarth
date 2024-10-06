@@ -162,8 +162,8 @@ const getStyles = (screenDimensions) => {
       width: "100%",
     },
     backImageStyle: {
-      height: 43,
-      width: 43,
+      height: 38,
+      width: 38,
       marginHorizontal: 16,
     },
     iStyle: {

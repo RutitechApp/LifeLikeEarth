@@ -5,5 +5,6 @@ export default {
   LIST: "List",
   QUIZ: "QuizScreen",
   REWARDS: "Rewards",
-  PASSPORT : 'PassPortScreen'
+  PASSPORT: "PassPortScreen",
+  PLANET: "Planet",
 };

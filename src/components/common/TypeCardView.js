@@ -85,5 +85,6 @@ const style = StyleSheet.create({
     fontFamily: fonts.SpaceGroteskBold,
     lineHeight: 41,
     marginTop: 6,
+    textAlign: "center",
   },
 });

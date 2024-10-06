@@ -1,9 +1,10 @@
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import React from "react";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import FastImage from "react-native-fast-image";
 import iconConstants from "../../utils/iconConstants";
 import fonts from "../../utils/fonts";
 import colors from "../../utils/colors";
+import { useNavigation } from "@react-navigation/native";
 
 const SubHeader = ({ title, onPress }) => {
   return (
@@ -22,13 +23,13 @@ const SubHeader = ({ title, onPress }) => {
 export default SubHeader;
 const style = StyleSheet.create({
   titleStyle: {
-    fontSize: 35,
+    fontSize: 30,
     fontFamily: fonts.SpaceGroteskBold,
     color: colors.white,
   },
   imageStyle: {
-    height: 50,
-    width: 50,
+    height: 38,
+    width: 38,
   },
   viewStyle: {
     flexDirection: "row",

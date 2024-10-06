@@ -20,7 +20,14 @@ const ListScreen = () => {
     />
   );
 
-  const renderPalnetItem = ({ item }) => <PlanetCardView data={item} />;
+  const renderPalnetItem = ({ item }) => (
+    <PlanetCardView
+      data={item}
+      onPress={() =>
+        navigation.navigate(navigationConstants.PLANET, { data: item })
+      }
+    />
+  );
 
   return (
     <Container>

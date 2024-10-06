@@ -1,25 +1,19 @@
-import {Dimensions, SafeAreaView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import React, { useEffect } from 'react';
-import FastImage from 'react-native-fast-image';
-import imageConstants from '../utils/imageConstants';
-import { questions } from '../helper/dummyData';
-import { useSelector } from 'react-redux';
-import colors from '../utils/colors';
-import Container from './common/Container';
-import { useNavigation } from '@react-navigation/native';
-import navigationConstants from '../utils/navigationConstants';
+import React from "react";
+import { Dimensions, StyleSheet, Text, View } from "react-native";
+import FastImage from "react-native-fast-image";
+import imageConstants from "../utils/imageConstants";
+import { useSelector } from "react-redux";
+import colors from "../utils/colors";
+import Container from "./common/Container";
 
-const FinishView = ({finalScore}) => {
-  const navigation = useNavigation()
-  const screenDimensions = Dimensions.get('screen');
+const FinishView = ({ finalScore }) => {
+  const screenDimensions = Dimensions.get("screen");
   const styles = getStyles(screenDimensions);
   const quiz = useSelector((state) => state?.quiz?.quizData?.quizData);
-  const quizItems = quiz ? quiz : questions
+  const quizItems = quiz ? quiz : questions;
   const percentageScore = ((finalScore / quizItems.length) * 100).toFixed(2);
 
-  useEffect(() => {
-
-  },[])
+  useEffect(() => {}, []);
 
   return (
     <Container>

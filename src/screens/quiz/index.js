@@ -13,9 +13,10 @@ export const QuizScreen = () => {
   const route = useRoute();
   const dispatch = useDispatch();
   const quiz = useSelector((state) => state?.quiz?.quizData?.quizData);
-  const quizItems = quiz ? quiz : questions
+  const quizItems = quiz ? quiz : questions;
+  console.log("quiz", quiz);
   useEffect(() => {
-    route?.params?.data &&  fetchData()
+    route?.params?.data && fetchData();
   }, []);
 
   const fetchData = () => {

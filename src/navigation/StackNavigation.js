@@ -8,6 +8,7 @@ import ListScreen from "../screens/list";
 import RewardsScreen from "../screens/rewards";
 import { QuizScreen } from "../screens/quiz";
 import PassPortScreen from "../screens/passPort";
+import PalnetScreen from "../screens/planet";
 
 const Stack = createNativeStackNavigator();
 const StackNavigation = () => {
@@ -31,6 +32,10 @@ const StackNavigation = () => {
       <Stack.Screen
         name={navigationConstants.PASSPORT}
         component={PassPortScreen}
+      />
+      <Stack.Screen
+        name={navigationConstants.PLANET}
+        component={PalnetScreen}
       />
     </Stack.Navigator>
   );

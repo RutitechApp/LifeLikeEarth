@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
+  Animated,
   ScrollView,
   StyleSheet,
   Text,
@@ -19,30 +20,57 @@ const DetailsScreen = () => {
   const route = useRoute();
   const data = route?.params?.data;
   const [showDetails, setShowDetails] = useState(false);
+
+  const slideAnim = useRef(new Animated.Value(0)).current;
+
+  const slideUp = () => {
+    Animated.timing(slideAnim, {
+      toValue: -15,
+      duration: 500,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const slideDown = () => {
+    Animated.timing(slideAnim, {
+      toValue: 0,
+      duration: 500,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const toggleDetails = () => {
+    if (showDetails) {
+      slideDown();
+    } else {
+      slideUp();
+    }
+    setShowDetails(!showDetails);
+  };
+
   return (
     <Container>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          marginHorizontal: 16,
-        }}
-      >
+      <View style={style.rViewStyle}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <FastImage source={iconConstants.back} style={style.backImageStyle} />
         </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() =>
-            navigation.navigate(navigationConstants.QUIZ, { data: data })
-          }
-        >
-          <FastImage source={iconConstants.quiz} style={style.backImageStyle} />
-        </TouchableOpacity>
+        {showDetails && (
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate(navigationConstants.QUIZ, { data: data })
+            }
+          >
+            <FastImage
+              source={iconConstants.quiz}
+              style={style.backImageStyle}
+            />
+          </TouchableOpacity>
+        )}
       </View>
       <ScrollView
         alwaysBounceVertical={false}
         showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBottom: 20 }}
       >
         {!showDetails && (
           <Text style={style.pTextStyle}>{data?.planetName}</Text>
@@ -58,7 +86,7 @@ const DetailsScreen = () => {
           ]}
         />
         {!showDetails && (
-          <TouchableOpacity onPress={() => setShowDetails(!showDetails)}>
+          <TouchableOpacity onPress={toggleDetails}>
             <FastImage source={iconConstants.up} style={style.iconStyle} />
           </TouchableOpacity>
         )}
@@ -66,7 +94,12 @@ const DetailsScreen = () => {
           <View>
             <Text style={style.planetTypeStyle}>{data?.planetType}</Text>
             <Text style={style.planetNameStyle}>{data?.planetName}</Text>
-            <View style={style.cardViewStyle} resizeMode="contain">
+          </View>
+        )}
+
+        <Animated.View style={[{ transform: [{ translateY: slideAnim }] }]}>
+          {showDetails && (
+            <View style={style.cardViewStyle}>
               <View style={style.rowViewStyle}>
                 <Text style={style.tStyle}>PLANET TYPE</Text>
                 <Text style={style.pTStyle}>{data?.planetType}</Text>
@@ -80,18 +113,11 @@ const DetailsScreen = () => {
                 <Text style={style.pTStyle}>{data?.orbitalPeriodDays}</Text>
               </View>
               <View style={[style.rowViewStyle, { marginTop: 20 }]}>
-                <Text style={style.tStyle}>DISCOVEREY METHOD</Text>
+                <Text style={style.tStyle}>DISCOVERY METHOD</Text>
                 <Text style={style.pTStyle}>{data?.discoveryMethod}</Text>
               </View>
-              <View
-                style={[
-                  style.rowViewStyle,
-                  {
-                    marginTop: 20,
-                  },
-                ]}
-              >
-                <Text style={style.tStyle}>DISCOVEREY FACILITY</Text>
+              <View style={[style.rowViewStyle, { marginTop: 20 }]}>
+                <Text style={style.tStyle}>DISCOVERY FACILITY</Text>
                 <Text style={style.pTStyle}>{data?.discoveryFacility}</Text>
               </View>
               <View style={[style.rowViewStyle, { marginTop: 20 }]}>
@@ -106,25 +132,32 @@ const DetailsScreen = () => {
                   {data?.stellarEffectiveTemperatureK}
                 </Text>
               </View>
+              <View style={[style.rowViewStyle, { marginTop: 20 }]}>
+                <Text style={style.tStyle}>TEMPERATURE</Text>
+                <Text style={style.pTStyle}>
+                  {data?.stellarEffectiveTemperatureK}
+                </Text>
+              </View>
               <Text style={style.dTextStyle}>DESCRIPTION</Text>
               <Text style={style.dSubTextStyle}>{data?.description}</Text>
             </View>
-          </View>
-        )}
+          )}
+        </Animated.View>
       </ScrollView>
     </Container>
   );
 };
 
 export default DetailsScreen;
+
 const style = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.black,
   },
   backImageStyle: {
-    height: 43,
-    width: 43,
+    height: 38,
+    width: 38,
   },
   imageStyle: {
     height: 331,
@@ -205,5 +238,11 @@ const style = StyleSheet.create({
   iStyle: {
     alignSelf: "center",
     marginTop: 40,
+  },
+  rViewStyle: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginHorizontal: 16,
   },
 });
