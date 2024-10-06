@@ -33,11 +33,7 @@ export const QuizScreen = () => {
       setScore(score + 1);
     }
 
-    const timer = setTimeout(() => {
-      setCurrentQuestion(currentQuestion + 1);
-    }, 1000);
-
-    return () => clearTimeout(timer);
+    setCurrentQuestion(currentQuestion + 1);
   };
 
   return currentQuestion == quizItems?.length ? (
@@ -49,6 +45,5 @@ export const QuizScreen = () => {
       score={score}
       data={route?.params?.data}
     />
-    // <FinishView finalScore={score} />
   );
 };
