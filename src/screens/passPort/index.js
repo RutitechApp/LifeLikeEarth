@@ -96,8 +96,8 @@ const PassPortScreen = () => {
             </Text>
 
             <View style={styles.infoContainer}>
-              <Text style={styles.nameText}>Shivam Jasoliya</Text>
-              <Text style={styles.countryText}>26 years old</Text>
+              <Text style={styles.nameText}>{uData?.userName}</Text>
+              <Text style={styles.countryText}>{uData?.age}</Text>
             </View>
 
             <View style={styles.qrCodeContainer}>

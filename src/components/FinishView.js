@@ -119,13 +119,16 @@ const FinishView = ({ finalScore }) => {
                     <TouchableOpacity
                       style={styles.submitButton}
                       onPress={() => {
-                        setIsModalVisible(false);
-                        const obj = {
-                          userName: userName,
-                          age: userAge,
-                        };
-                        !uData && dispatch(userAction(obj));
-                        navigation.navigate(navigationConstants.PASSPORT);
+                        if (userName && userAge) {
+                          const obj = {
+                            userName: userName,
+                            age: userAge,
+                          };
+                          dispatch(userAction(obj));
+                          setIsModalVisible(false);
+
+                          navigation.navigate(navigationConstants.PASSPORT);
+                        }
                       }}
                     >
                       <Text style={styles.submitButtonText}>Launch</Text>

@@ -5,10 +5,11 @@ import fonts from "../../utils/fonts";
 
 const Button = ({ title, buttonStyle, buttonTextStyle, onPress }) => {
   return (
-    <TouchableOpacity style={[style.buttonStyle, buttonStyle]}>
-      <Text style={[style.btnTextStyle, { buttonTextStyle }]} onPress={onPress}>
-        {title}
-      </Text>
+    <TouchableOpacity
+      style={[style.buttonStyle, buttonStyle]}
+      onPress={onPress}
+    >
+      <Text style={[style.btnTextStyle, { buttonTextStyle }]}>{title}</Text>
     </TouchableOpacity>
   );
 };

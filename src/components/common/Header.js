@@ -4,20 +4,23 @@ import iconConstants from "../../utils/iconConstants";
 import { useNavigation } from "@react-navigation/native";
 import navigationConstants from "../../utils/navigationConstants";
 import imageConstants from "../../utils/imageConstants";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const navigation = useNavigation();
+  const uData = useSelector((state) => state?.user?.userData);
+  console.log(uData?.length);
   return (
     <View style={styles.container}>
-      <TouchableOpacity
+      {/* <TouchableOpacity
         onPress={() => navigation.navigate(navigationConstants.PASSPORT)}
-      >
-        <Image
-          source={imageConstants.logo}
-          style={styles.ic_notification}
-          resizeMode="contain"
-        />
-      </TouchableOpacity>
+      > */}
+      <Image
+        source={imageConstants.logo}
+        style={styles.ic_notification}
+        resizeMode="contain"
+      />
+      {/* </TouchableOpacity> */}
       <TouchableOpacity
         onPress={() => navigation.navigate(navigationConstants.QUIZ)}
       >
