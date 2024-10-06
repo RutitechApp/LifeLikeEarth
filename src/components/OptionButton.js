@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Text,
   StyleSheet,
@@ -14,23 +14,28 @@ export const OptionButton = ({
   disabled,
   type,
   onPress,
+  ans
 }) => {
   const screenDimensions = Dimensions.get('screen');
   const styles = getStyles(screenDimensions);
-
+const [selectedOption , setSelectedOption] = useState('')
+  const onPressAnd = () => {
+    setSelectedOption(buttonText)
+    onPress(buttonText)
+  }
   return (
     <Pressable
       style={[
         styles.button,
         {
           width: width || 'auto',
-          backgroundColor: 'rgba(255, 255, 255, 0.4)',
+          backgroundColor: selectedOption == '' ?  'rgba(255, 255, 255, 0.4)' : buttonText == ans ? 'green' : 'red',
           borderWidth: 2,
           borderColor: colors[type],
           alignSelf: fullWidth ? 'stretch' : 'center',
         },
       ]}
-      onPress={onPress}
+      onPress={onPressAnd}
       disabled={disabled}>
       <Text
         style={[

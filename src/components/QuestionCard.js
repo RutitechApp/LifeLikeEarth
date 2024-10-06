@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -22,6 +22,12 @@ export const QuestionCard = ({ question, onSelectOption, score, data }) => {
   const screenDimensions = Dimensions.get("screen");
   const styles = getStyles(screenDimensions);
   const navigation = useNavigation();
+  const [correctOption, setCorrectOption] = useState(false)
+  const onTapOnOption = (item) => {
+    console.log(item, question.correctAnswer)
+    setCorrectOption(item == question.correctAnswer)
+    onSelectOption(item)
+  }
   return (
     <Container>
       <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -41,8 +47,8 @@ export const QuestionCard = ({ question, onSelectOption, score, data }) => {
                     data?.planetImage === undefined
                       ? imageConstants.logo
                       : {
-                          uri: data?.planetImage,
-                        }
+                        uri: data?.planetImage,
+                      }
                   }
                   style={styles.iStyle}
                   resizeMode="contain"
@@ -55,8 +61,9 @@ export const QuestionCard = ({ question, onSelectOption, score, data }) => {
                       <OptionButton
                         buttonText={item}
                         key={`${item}-${index}`}
-                        onPress={() => onSelectOption(item)}
-                        type="primary"
+                        onPress={() => onTapOnOption(item)}
+                        type={correctOption}
+                        ans={question.correctAnswer}
                         fullWidth
                       />
                     )}

@@ -33,7 +33,13 @@ export const QuizScreen = () => {
     if (option === quizItems[currentQuestion].correctAnswer) {
       setScore(score + 1);
     }
-    setCurrentQuestion(currentQuestion + 1);
+
+    const timer = setTimeout(() => {
+      setCurrentQuestion(currentQuestion + 1);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+
   };
 
   return currentQuestion == quizItems?.length ? (
