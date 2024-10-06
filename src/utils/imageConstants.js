@@ -3,7 +3,7 @@ export default {
   detectionGif: require("../assets/images/Detection.gif"),
   bannerImage: require("../assets/images/Banner.png"),
   statGif: require("../assets/images/Stars.gif"),
-  // rewords: require("../assets/images/rewords.webp"),
+  rewords: require("../assets/images/Rewords.webp"),
   blurCapsul: require("../assets/images/BlurCapsul1.png"),
   statGif: require("../assets/images/Stars.gif"),
   onBoarding1: require("../assets/images/Onboarding1.png"),

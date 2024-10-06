@@ -13,7 +13,6 @@ const FinishView = ({ finalScore }) => {
   const quizItems = quiz ? quiz : questions;
   const percentageScore = ((finalScore / quizItems.length) * 100).toFixed(2);
 
-  useEffect(() => {}, []);
 
   return (
     <Container>
@@ -45,7 +44,7 @@ const FinishView = ({ finalScore }) => {
                 borderRadius: 10,
                 overflow: "hidden",
               }}
-              source={imageConstants.logo}
+              source={imageConstants.rewords}
               resizeMode={FastImage.resizeMode.contain}
             />
           </View>

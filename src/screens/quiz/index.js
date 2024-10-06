@@ -45,11 +45,12 @@ export const QuizScreen = () => {
   return currentQuestion == quizItems?.length ? (
     <FinishView finalScore={score} />
   ) : (
-    <QuestionCard
-      question={quizItems[currentQuestion]}
-      onSelectOption={handleSelectOption}
-      score={score}
-      data={route?.params?.data}
-    />
+    // <QuestionCard
+    //   question={quizItems[currentQuestion]}
+    //   onSelectOption={handleSelectOption}
+    //   score={score}
+    //   data={route?.params?.data}
+    // />
+    <FinishView finalScore={score} />
   );
 };
