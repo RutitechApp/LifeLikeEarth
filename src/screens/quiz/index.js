@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchExoplanet } from "../../redux/action/exoplanetAction";
 import { fetchQuiz } from "../../redux/action/quizAction";
 import { useRoute } from "@react-navigation/native";
+import { questions } from "../../helper/dummyData";
 
 export const QuizScreen = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -12,8 +13,9 @@ export const QuizScreen = () => {
   const route = useRoute();
   const dispatch = useDispatch();
   const quiz = useSelector((state) => state?.quiz?.quizData?.quizData);
+  const quizItems = quiz ? quiz : questions
   useEffect(() => {
-    fetchData();
+    route?.params?.data &&  fetchData()
   }, []);
 
   const fetchData = () => {
@@ -27,17 +29,17 @@ export const QuizScreen = () => {
   };
 
   const handleSelectOption = (option) => {
-    if (option === quiz[currentQuestion].correctAnswer) {
+    if (option === quizItems[currentQuestion].correctAnswer) {
       setScore(score + 1);
     }
     setCurrentQuestion(currentQuestion + 1);
   };
 
-  return currentQuestion == quiz.length ? (
+  return currentQuestion == quizItems?.length ? (
     <FinishView finalScore={score} />
   ) : (
     <QuestionCard
-      question={quiz[currentQuestion]}
+      question={quizItems[currentQuestion]}
       onSelectOption={handleSelectOption}
       score={score}
       data={route?.params?.data}

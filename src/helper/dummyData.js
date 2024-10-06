@@ -115,27 +115,118 @@ export const PlannetData = [
   },
 ];
 
-export const questions = [
-  {
-    id: 1,
-    question:
-      "At what distance is the TOI-733 system located from Earth compared to the other systems we discussed?",
-    options: ["Paris", "London", "Berlin", "Rome"],
-    correctAnswer: "Paris",
-  },
-  {
-    id: 2,
-    question: "What is the largest planet in our solar system?",
-    options: ["Earth", "Saturn", "Jupiter", "Uranus"],
-    correctAnswer: "Jupiter",
-    plantName: "Neptune",
-    description:
-      "Neptune is the eighth, and most distant planet from the Sun. It’s the fourth-largest, and the first planet discovered with math.",
-    plantType: "ice giants",
-    image:
-      "https://life-like-earth-server.vercel.app/assets/planetsImages/neptune.png",
-  },
-];
+export const questions =  [
+      {
+          "id": "66f3944c131290e89057a90f",
+          "question": "What is the name of the exoplanet?",
+          "options": [
+              "TYC 0434-04538 (host star)",
+              "TYC 0434-04538-1 a (not a standard naming convention)",
+              "TYC 0434-04538-1 (host star)",
+              "TYC 0434-04538-1 b"
+          ],
+          "correctAnswer": "TYC 0434-04538-1 b"
+      },
+      {
+          "id": "66f3946a131290e89057a91f",
+          "question": "How many stars does this exoplanet orbit?",
+          "options": [
+              "Multiple (uncertain from the data)",
+              "2",
+              "1",
+              "None (it's a planet, not a star)"
+          ],
+          "correctAnswer": "1"
+      },
+      {
+          "id": "66f39485131290e89057a92f",
+          "question": "What technique was used to discover TYC 0434-04538-1 b?",
+          "options": [
+              "Transit Method",
+              "Direct Imaging",
+              "Radial Velocity",
+              "Gravitational Microlensing"
+          ],
+          "correctAnswer": "Radial Velocity"
+      },
+      {
+          "id": "66f394a6131290e89057a93f",
+          "question": "In what year was this exoplanet discovered?",
+          "options": [
+              "2020",
+              "2021",
+              "2022",
+              "The information is not provided."
+          ],
+          "correctAnswer": "2021"
+      },
+      {
+          "id": "66f394e4131290e89057a95c",
+          "question": "At which observatory was TYC 0434-04538-1 b discovered?",
+          "options": [
+              "A specific observatory is not given.",
+              "Keck Observatory",
+              "Hubble Space Telescope",
+              "Roque de los Muchachos Observatory"
+          ],
+          "correctAnswer": "A specific observatory is not given."
+      },
+      {
+          "id": "66f39500131290e89057a96c",
+          "question": "What is the reference for the discovery of TYC 0434-04538-1 b?",
+          "options": [
+              "A&A 2020, 580, A123 (example, not the actual reference)",
+              "Niedzielski et al. 2021",
+              "TICv8",
+              "There is no published reference."
+          ],
+          "correctAnswer": "Niedzielski et al. 2021"
+      },
+      {
+          "id": "66f39521131290e89057a97c",
+          "question": "What is the orbital period of TYC 0434-04538-1 b in days (approximately)?",
+          "options": [
+              "30",
+              "100",
+              "193.2",
+              "We cannot determine the orbital period from this data."
+          ],
+          "correctAnswer": "193.2"
+      },
+      {
+          "id": "66f39540131290e89057a98c",
+          "question": "How massive is TYC 0434-04538-1 b compared to Earth?",
+          "options": [
+              "It has less than half the mass of Earth.",
+              "It is slightly less massive than Earth.",
+              "It is roughly 2 times more massive than Earth.",
+              "The data is insufficient to determine the true mass. (We only have mass sin(i), which depends on the orbital inclination)"
+          ],
+          "correctAnswer": "It is roughly 2 times more massive than Earth."
+      },
+      {
+          "id": "66f39562131290e89057a99c",
+          "question": "What is the estimated effective temperature of the star that TYC 0434-04538-1 b orbits?",
+          "options": [
+              "3000 Kelvin",
+              "4679 Kelvin",
+              "5500 Kelvin",
+              "6000 Kelvin"
+          ],
+          "correctAnswer": "4679 Kelvin"
+      },
+      {
+          "id": "66f3957d131290e89057a9ac",
+          "question": "How far away is the TYC 0434-04538 system located from Earth (in parsecs)?",
+          "options": [
+              "100",
+              "300",
+              "613.4",
+              "The distance cannot be determined from stellar magnitude data."
+          ],
+          "correctAnswer": "613.4"
+      }
+  ];
 
 export const typeData = [
   {

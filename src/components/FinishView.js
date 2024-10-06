@@ -1,16 +1,25 @@
-import { Dimensions, StyleSheet, Text, View } from "react-native";
-import React from "react";
-import FastImage from "react-native-fast-image";
-import imageConstants from "../utils/imageConstants";
-import { useSelector } from "react-redux";
-import colors from "../utils/colors";
-import Container from "./common/Container";
+import {Dimensions, SafeAreaView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import React, { useEffect } from 'react';
+import FastImage from 'react-native-fast-image';
+import imageConstants from '../utils/imageConstants';
+import { questions } from '../helper/dummyData';
+import { useSelector } from 'react-redux';
+import colors from '../utils/colors';
+import Container from './common/Container';
+import { useNavigation } from '@react-navigation/native';
+import navigationConstants from '../utils/navigationConstants';
 
-const FinishView = ({ finalScore }) => {
-  const screenDimensions = Dimensions.get("screen");
+const FinishView = ({finalScore}) => {
+  const navigation = useNavigation()
+  const screenDimensions = Dimensions.get('screen');
   const styles = getStyles(screenDimensions);
   const quiz = useSelector((state) => state?.quiz?.quizData?.quizData);
-  const percentageScore = ((finalScore / quiz.length) * 100).toFixed(2);
+  const quizItems = quiz ? quiz : questions
+  const percentageScore = ((finalScore / quizItems.length) * 100).toFixed(2);
+
+  useEffect(() => {
+
+  },[])
 
   return (
     <Container>
@@ -21,7 +30,7 @@ const FinishView = ({ finalScore }) => {
           >
             <Text style={styles.endTitle}>All questions answered!</Text>
             <Text style={styles.scoreAnnouncement}>
-              You scored {finalScore} out of {quiz.length}
+              You scored {finalScore} out of {quizItems.length}
             </Text>
 
             <Text style={styles.scorePercentage}>
@@ -42,7 +51,7 @@ const FinishView = ({ finalScore }) => {
                 borderRadius: 10,
                 overflow: "hidden",
               }}
-              source={imageConstants.rewords}
+              source={imageConstants.logo}
               resizeMode={FastImage.resizeMode.contain}
             />
           </View>

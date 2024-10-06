@@ -7,6 +7,7 @@ import DetailsScreen from "../screens/details";
 import ListScreen from "../screens/list";
 import RewardsScreen from "../screens/rewards";
 import { QuizScreen } from "../screens/quiz";
+import PassPortScreen from "../screens/passPort";
 
 const Stack = createNativeStackNavigator();
 const StackNavigation = () => {
@@ -26,6 +27,10 @@ const StackNavigation = () => {
       <Stack.Screen
         name={navigationConstants.REWARDS}
         component={RewardsScreen}
+      />
+      <Stack.Screen
+        name={navigationConstants.PASSPORT}
+        component={PassPortScreen}
       />
     </Stack.Navigator>
   );
