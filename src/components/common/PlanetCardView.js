@@ -10,24 +10,26 @@ import FastImage from "react-native-fast-image";
 import fonts from "../../utils/fonts";
 import colors from "../../utils/colors";
 
-const CardView = ({ data, onPress }) => {
+const PlanetCardView = ({ data, onPress }) => {
   return (
     <ImageBackground
-      source={imageConstants.eCardImage}
+      source={imageConstants.capCard}
       style={style.imageBGStyle}
       resizeMode="contain"
     >
       <FastImage
-        source={{ uri: data?.planetImage }}
+        source={{ uri: data?.image }}
         style={style.imageStyle}
         resizeMode="contain"
       />
       <Text style={style.textStyle} numberOfLines={1}>
-        {data?.planetName}
+        {data?.plantName}
       </Text>
-      <Text style={style.tStyle}>Discovery Year:</Text>
-      <Text style={style.subTextStyle}>{data?.discoveryYear}</Text>
-      <TouchableOpacity onPress={onPress}>
+      <Text style={style.tStyle}>{data?.plantType}</Text>
+      <Text style={style.subTextStyle} numberOfLines={3}>
+        {data?.description}
+      </Text>
+      <TouchableOpacity>
         <FastImage
           source={imageConstants.arrow}
           style={style.arrowStyle}
@@ -38,12 +40,12 @@ const CardView = ({ data, onPress }) => {
   );
 };
 
-export default CardView;
+export default PlanetCardView;
 
 const style = StyleSheet.create({
   imageBGStyle: {
     width: 182,
-    height: 242,
+    height: 293,
     alignItems: "center",
     paddingVertical: 20,
     marginTop: 30,
@@ -66,10 +68,11 @@ const style = StyleSheet.create({
     opacity: 0.8,
   },
   subTextStyle: {
-    fontSize: 12,
+    fontSize: 11,
     color: colors.white,
-    fontFamily: fonts.SpaceGroteskLight,
-    opacity: 0.5,
+    fontFamily: fonts.CrimsonTextBold,
+    lineHeight: 22,
+    textAlign: "center",
   },
   arrowStyle: {
     width: 42,

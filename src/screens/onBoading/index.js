@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Text, SafeAreaView, StyleSheet, View } from "react-native";
+import { Text, SafeAreaView, StyleSheet, ImageBackground } from "react-native";
 import { OnBoadingData } from "../../helper/dummyData";
 import colors from "../../utils/colors";
-import FastImage from "react-native-fast-image";
 import Button from "../../components/common/Button";
 import { useNavigation } from "@react-navigation/native";
 import navigationConstants from "../../utils/navigationConstants";
@@ -13,26 +12,24 @@ const OnBoadingScreen = () => {
   const [index, setIndex] = useState(0);
 
   return (
-    <SafeAreaView style={style.container}>
-      <FastImage
-        source={OnBoadingData?.[index]?.imageUrl}
-        style={style.imageStyle}
-        resizeMode="contain"
-      />
-      <View style={{ marginHorizontal: 25, marginTop: 90 }}>
+    <ImageBackground
+      source={OnBoadingData?.[index]?.imageUrl}
+      style={{ flex: 1 }}
+    >
+      <SafeAreaView style={{ flex: 1 }}>
         <Text style={style.textStyle}>{OnBoadingData?.[index].title}</Text>
         <Text style={style.subTextStyle}>{OnBoadingData?.[index].desc}</Text>
         <Button
           title={index === 2 ? "Get Started" : "Next"}
-          buttonStyle={{ marginTop: 50 }}
+          buttonStyle={{ marginTop: 60 }}
           onPress={() => {
             index === 2
               ? navigation.navigate(navigationConstants.HOME)
               : setIndex(index + 1);
           }}
         />
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </ImageBackground>
   );
 };
 
@@ -54,15 +51,18 @@ const style = StyleSheet.create({
   textStyle: {
     color: colors.white,
     fontSize: 32,
-    fontFamily: fonts.CrimsonTextBold,
-    lineHeight: 40,
+    fontFamily: fonts.SpaceGroteskBold,
+    lineHeight: 44,
     textAlign: "center",
+    marginTop: 50,
+    marginHorizontal: 5,
   },
   subTextStyle: {
     color: colors.white,
-    fontSize: 22,
-    fontFamily: fonts.CrimsonTextItalic,
+    fontSize: 20,
+    fontFamily: fonts.SpaceGroteskBold,
     textAlign: "center",
-    opacity: 0.5,
+    marginTop: 450,
+    lineHeight: 28,
   },
 });

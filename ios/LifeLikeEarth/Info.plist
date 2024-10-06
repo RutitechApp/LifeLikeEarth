@@ -49,12 +49,11 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>CrimsonText-Bold.ttf</string>
-		<string>CrimsonText-BoldItalic.ttf</string>
-		<string>CrimsonText-Italic.ttf</string>
-		<string>CrimsonText-Regular.ttf</string>
-		<string>CrimsonText-SemiBold.ttf</string>
-		<string>CrimsonText-SemiBoldItalic.ttf</string>
+		<string>SpaceGrotesk-Bold.ttf</string>
+		<string>SpaceGrotesk-Light.ttf</string>
+		<string>SpaceGrotesk-Medium.ttf</string>
+		<string>SpaceGrotesk-Regular.ttf</string>
+		<string>SpaceGrotesk-SemiBold.ttf</string>
 	</array>
 </dict>
 </plist>

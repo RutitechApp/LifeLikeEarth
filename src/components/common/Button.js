@@ -17,18 +17,19 @@ export default Button;
 
 const style = StyleSheet.create({
   buttonStyle: {
-    backgroundColor: "rgba(0, 0, 0, 0.45)",
-    borderWidth: 1,
-    borderColor: "#0B0B0B",
-    marginHorizontal: 60,
+    backgroundColor: "rgba(255, 255, 255, 0.1)",
+    borderWidth: 0.3,
+    borderColor: "rgba(255, 255, 255, 1)",
     borderRadius: 15,
     justifyContent: "center",
     alignItems: "center",
     paddingVertical: 10,
+    marginLeft: 226,
+    marginRight: 20,
   },
   btnTextStyle: {
     color: colors.white,
-    fontSize: 24,
-    fontFamily: fonts.CrimsonTextSemiBold,
+    fontSize: 22,
+    fontFamily: fonts.SpaceGroteskBold,
   },
 });

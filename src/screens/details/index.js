@@ -33,8 +33,8 @@ const style = StyleSheet.create({
     width: 43,
   },
   imageStyle: {
-    height: 300,
-    width: 300,
+    height: 216,
+    width: 214,
     alignSelf: "center",
   },
 });
