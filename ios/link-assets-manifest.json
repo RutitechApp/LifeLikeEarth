@@ -2,6 +2,86 @@
   "migIndex": 1,
   "data": [
     {
+      "path": "src/assets/fonts/Archivo-Black.ttf",
+      "sha1": "cce504ce06604c24c930150048637c4a408780ad"
+    },
+    {
+      "path": "src/assets/fonts/Archivo-Bold.ttf",
+      "sha1": "eb82d92b518bfb11b7b5768076849dbeba3de0ac"
+    },
+    {
+      "path": "src/assets/fonts/Archivo-ExtraBold.ttf",
+      "sha1": "ff3738601abc439725a6548f3192cd3d3bbabf38"
+    },
+    {
+      "path": "src/assets/fonts/Archivo-ExtraLight.ttf",
+      "sha1": "64b632fa760f53e6c820ac43f27b8156209a127a"
+    },
+    {
+      "path": "src/assets/fonts/Archivo-Light.ttf",
+      "sha1": "2978aaf1f743c46402a38023df7f6af7bda22906"
+    },
+    {
+      "path": "src/assets/fonts/Archivo-Medium.ttf",
+      "sha1": "4bdd76137310b22c3263c63041e1f93734eb06bc"
+    },
+    {
+      "path": "src/assets/fonts/Archivo-Regular.ttf",
+      "sha1": "c14f15d27da595dcfe84fde32fdb75fc1e970e46"
+    },
+    {
+      "path": "src/assets/fonts/Archivo-SemiBold.ttf",
+      "sha1": "2bc6020da26a12e3f9918f076bd00854618aaceb"
+    },
+    {
+      "path": "src/assets/fonts/Archivo-Thin.ttf",
+      "sha1": "6166705f2dbe71217f013f4a360d354da7ac3eaf"
+    },
+    {
+      "path": "src/assets/fonts/CrimsonText-Bold.ttf",
+      "sha1": "4079be58c5ebc634879a096cc63ad82d858ed2c9"
+    },
+    {
+      "path": "src/assets/fonts/CrimsonText-BoldItalic.ttf",
+      "sha1": "3c95d9a60acd07e8fad552b6c7d4789cf5e306d7"
+    },
+    {
+      "path": "src/assets/fonts/CrimsonText-Italic.ttf",
+      "sha1": "f92c8ec809dbc2d804ad60dcf391e4a128eed08f"
+    },
+    {
+      "path": "src/assets/fonts/CrimsonText-Regular.ttf",
+      "sha1": "61b3f0d113dcf62c7619aff1bae3a6646286720b"
+    },
+    {
+      "path": "src/assets/fonts/CrimsonText-SemiBold.ttf",
+      "sha1": "12d88291e2b1d9db88e6039f08b71864887aa5ca"
+    },
+    {
+      "path": "src/assets/fonts/CrimsonText-SemiBoldItalic.ttf",
+      "sha1": "1104b7da57b8969ffb9bf1707960497dedacc61a"
+    },
+    {
+      "path": "src/assets/fonts/Sen-Bold.ttf",
+      "sha1": "d2cddce0e0d4276c685e57c17be144b548272d00"
+    },
+    {
+      "path": "src/assets/fonts/Sen-ExtraBold.ttf",
+      "sha1": "0c9f08b76aa14c958767359ec63b57ca33b17035"
+    },
+    {
+      "path": "src/assets/fonts/Sen-Medium.ttf",
+      "sha1": "e2539448179164da98cd436b9e3144f8499d0571"
+    },
+    {
+      "path": "src/assets/fonts/Sen-Regular.ttf",
+      "sha1": "d58ec79c35b9e6270fbf9a1af019b4b5d50456af"
+    },
+    {
+      "path": "src/assets/fonts/Sen-SemiBold.ttf",
+      "sha1": "3caeec745e383674fce250b325e485e89b0c0e98"
+    },
+    {
       "path": "src/assets/fonts/SpaceGrotesk-Bold.ttf",
       "sha1": "b2aa14fa837cf3ed5e647c87906e88238d88c548"
     },

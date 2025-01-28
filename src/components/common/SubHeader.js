@@ -4,7 +4,7 @@ import FastImage from "react-native-fast-image";
 import iconConstants from "../../utils/iconConstants";
 import fonts from "../../utils/fonts";
 import colors from "../../utils/colors";
-import { useNavigation } from "@react-navigation/native";
+import { Height, Width } from "../../utils/responsive";
 
 const SubHeader = ({ title, onPress }) => {
   return (
@@ -23,18 +23,19 @@ const SubHeader = ({ title, onPress }) => {
 export default SubHeader;
 const style = StyleSheet.create({
   titleStyle: {
-    fontSize: 30,
-    fontFamily: fonts.SpaceGroteskBold,
+    fontSize: Height(35),
+    fontFamily: fonts.SenBold,
     color: colors.white,
   },
   imageStyle: {
-    height: 38,
-    width: 38,
+    height: Height(45),
+    width: Height(45),
   },
   viewStyle: {
     flexDirection: "row",
-    marginHorizontal: 24,
+    marginHorizontal: Width(24),
     justifyContent: "space-between",
     alignItems: "center",
+    marginTop: Height(20),
   },
 });

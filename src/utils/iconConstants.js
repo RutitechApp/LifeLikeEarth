@@ -5,4 +5,5 @@ export default {
   forward: require("../assets/icons/forward.png"),
   up: require("../assets/icons/up.png"),
   quiz: require("../assets/icons/quiz.png"),
+  arrowRight: require("../assets/images/ArrowRight.gif"),
 };

@@ -11,8 +11,9 @@ import colors from "../../utils/colors";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import FastImage from "react-native-fast-image";
 import iconConstants from "../../utils/iconConstants";
-import Container from "../../components/common/Container";
 import fonts from "../../utils/fonts";
+import { Height, Width } from "../../utils/responsive";
+import Container from "../../components/common/Container";
 import navigationConstants from "../../utils/navigationConstants";
 
 const DetailsScreen = () => {
@@ -22,7 +23,6 @@ const DetailsScreen = () => {
   const [showDetails, setShowDetails] = useState(false);
 
   const slideAnim = useRef(new Animated.Value(0)).current;
-
   const slideUp = () => {
     Animated.timing(slideAnim, {
       toValue: -15,
@@ -70,7 +70,7 @@ const DetailsScreen = () => {
       <ScrollView
         alwaysBounceVertical={false}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingBottom: 20 }}
+        contentContainerStyle={{ paddingBottom: Height(20) }}
       >
         {!showDetails && (
           <Text style={style.pTextStyle}>{data?.planetName}</Text>
@@ -79,11 +79,12 @@ const DetailsScreen = () => {
           source={{ uri: data?.planetImage }}
           style={[
             {
-              height: !showDetails ? 331 : 216,
-              width: !showDetails ? 328 : 214,
+              height: !showDetails ? Height(331) : Height(216),
+              width: !showDetails ? Width(328) : Width(214),
             },
             style.iStyle,
           ]}
+          resizeMode="contain"
         />
         {!showDetails && (
           <TouchableOpacity onPress={toggleDetails}>
@@ -104,35 +105,35 @@ const DetailsScreen = () => {
                 <Text style={style.tStyle}>PLANET TYPE</Text>
                 <Text style={style.pTStyle}>{data?.planetType}</Text>
               </View>
-              <View style={[style.rowViewStyle, { marginTop: 20 }]}>
+              <View style={[style.rowViewStyle, { marginTop: Height(20) }]}>
                 <Text style={style.tStyle}>DISCOVERED IN</Text>
                 <Text style={style.pTStyle}>{data?.discoveryYear}</Text>
               </View>
-              <View style={[style.rowViewStyle, { marginTop: 20 }]}>
+              <View style={[style.rowViewStyle, { marginTop: Height(20) }]}>
                 <Text style={style.tStyle}>ORBITAL PERIOD</Text>
                 <Text style={style.pTStyle}>{data?.orbitalPeriodDays}</Text>
               </View>
-              <View style={[style.rowViewStyle, { marginTop: 20 }]}>
+              <View style={[style.rowViewStyle, { marginTop: Height(20) }]}>
                 <Text style={style.tStyle}>DISCOVERY METHOD</Text>
                 <Text style={style.pTStyle}>{data?.discoveryMethod}</Text>
               </View>
-              <View style={[style.rowViewStyle, { marginTop: 20 }]}>
+              <View style={[style.rowViewStyle, { marginTop: Height(20) }]}>
                 <Text style={style.tStyle}>DISCOVERY FACILITY</Text>
                 <Text style={style.pTStyle}>{data?.discoveryFacility}</Text>
               </View>
-              <View style={[style.rowViewStyle, { marginTop: 20 }]}>
+              <View style={[style.rowViewStyle, { marginTop: Height(20) }]}>
                 <Text style={style.tStyle}>PLANET MASS</Text>
                 <Text style={style.pTStyle}>
                   {data?.planetMassOrMassSinIEarthMass}
                 </Text>
               </View>
-              <View style={[style.rowViewStyle, { marginTop: 20 }]}>
+              <View style={[style.rowViewStyle, { marginTop: Height(20) }]}>
                 <Text style={style.tStyle}>TEMPERATURE</Text>
                 <Text style={style.pTStyle}>
                   {data?.stellarEffectiveTemperatureK}
                 </Text>
               </View>
-              <View style={[style.rowViewStyle, { marginTop: 20 }]}>
+              <View style={[style.rowViewStyle, { marginTop: Height(20) }]}>
                 <Text style={style.tStyle}>TEMPERATURE</Text>
                 <Text style={style.pTStyle}>
                   {data?.stellarEffectiveTemperatureK}
@@ -156,14 +157,9 @@ const style = StyleSheet.create({
     backgroundColor: colors.black,
   },
   backImageStyle: {
-    height: 38,
-    width: 38,
-  },
-  imageStyle: {
-    height: 331,
-    width: 328,
-    alignSelf: "center",
-    marginTop: 40,
+    height: Height(45),
+    width: Height(45),
+    marginTop: Height(20),
   },
   rowViewStyle: {
     flexDirection: "row",
@@ -171,78 +167,78 @@ const style = StyleSheet.create({
     justifyContent: "space-between",
   },
   tStyle: {
-    fontSize: 16,
-    fontFamily: fonts.SpaceGroteskBold,
+    fontSize: Height(16),
+    fontFamily: fonts.SenBold,
     color: "#1E59CC",
   },
   pTStyle: {
-    fontSize: 20,
-    fontFamily: fonts.SpaceGroteskBold,
+    fontSize: Height(20),
+    fontFamily: fonts.SenBold,
     color: colors.white,
     textAlign: "justify",
     width: "40%",
   },
   dTextStyle: {
-    fontSize: 24,
+    fontSize: Height(24),
     color: "#1E59CC",
-    fontFamily: fonts.SpaceGroteskBold,
+    fontFamily: fonts.SenBold,
     textAlign: "center",
-    marginTop: 44,
+    marginTop: Height(44),
   },
   dSubTextStyle: {
-    fontSize: 14,
-    fontFamily: fonts.SpaceGroteskMedium,
+    fontSize: Height(14),
+    fontFamily: fonts.SenMedium,
     color: colors.white,
     textAlign: "justify",
-    lineHeight: 22,
-    marginTop: 20,
+    lineHeight: Height(22),
+    marginTop: Height(20),
   },
   cardViewStyle: {
-    width: 382,
+    width: Width(382),
     alignSelf: "center",
-    paddingHorizontal: 27,
-    paddingVertical: 47,
+    paddingHorizontal: Width(27),
+    paddingVertical: Height(47),
     backgroundColor: "#121212",
-    borderRadius: 30,
+    borderRadius: Width(30),
     borderWidth: 0.5,
     borderColor: colors.white,
-    marginTop: 20,
+    marginTop: Height(20),
   },
   planetNameStyle: {
-    fontSize: 32,
+    fontSize: Height(32),
     color: colors.white,
-    fontFamily: fonts.SpaceGroteskBold,
+    fontFamily: fonts.SenBold,
     textAlign: "center",
   },
   planetTypeStyle: {
-    fontSize: 20,
+    fontSize: Height(20),
     color: colors.white,
-    fontFamily: fonts.SpaceGroteskSemiBold,
+    fontFamily: fonts.SenSemiBold,
     textAlign: "center",
     opacity: 0.4,
-    marginTop: 14,
+    marginTop: Height(14),
   },
   iconStyle: {
-    height: 40,
-    width: 40,
+    height: Height(40),
+    width: Height(40),
     alignSelf: "center",
-    marginTop: 122,
+    marginTop: Height(122),
   },
   pTextStyle: {
-    fontSize: 48,
+    fontSize: Height(48),
     color: colors.white,
-    fontFamily: fonts.SpaceGroteskSemiBold,
+    fontFamily: fonts.SenSemiBold,
     textAlign: "center",
-    marginTop: 30,
+    marginTop: Height(30),
   },
   iStyle: {
     alignSelf: "center",
-    marginTop: 40,
+    marginTop: Height(40),
   },
   rViewStyle: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginHorizontal: 16,
+    marginHorizontal: Width(16),
   },
 });

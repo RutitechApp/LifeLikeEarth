@@ -4,9 +4,10 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor, store } from "./src/redux/store/store";
 import SplashScreen from "react-native-splash-screen";
-import { StatusBar } from "react-native";
+import { LogBox, StatusBar } from "react-native";
 import colors from "./src/utils/colors";
 
+LogBox.ignoreAllLogs();
 const App = () => {
   useEffect(() => {
     SplashScreen.hide();

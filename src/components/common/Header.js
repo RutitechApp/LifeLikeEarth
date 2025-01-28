@@ -5,11 +5,11 @@ import { useNavigation } from "@react-navigation/native";
 import navigationConstants from "../../utils/navigationConstants";
 import imageConstants from "../../utils/imageConstants";
 import { useSelector } from "react-redux";
+import { Height, Width } from "../../utils/responsive";
 
 const Header = () => {
   const navigation = useNavigation();
   const uData = useSelector((state) => state?.user?.userData);
-  console.log(uData?.length);
   return (
     <View style={styles.container}>
       {/* <TouchableOpacity
@@ -36,10 +36,10 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginHorizontal: 23,
+    marginHorizontal: Width(30),
   },
   ic_notification: {
-    height: 38,
-    width: 38,
+    height: Height(50),
+    width: Height(50),
   },
 });

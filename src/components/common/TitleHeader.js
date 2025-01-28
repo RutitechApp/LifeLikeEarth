@@ -30,7 +30,7 @@ const style = StyleSheet.create({
   },
   titleStyle: {
     fontSize: 20,
-    fontFamily: fonts.CrimsonTextBold,
+    fontFamily: fonts.SenBold,
     color: colors.white,
   },
   viewStyle: {
@@ -41,7 +41,7 @@ const style = StyleSheet.create({
     fontSize: 16,
     color: "#1E59CC",
     textDecorationLine: "underline",
-    fontFamily: fonts.SpaceGroteskRegular,
+    fontFamily: fonts.SenRegular,
   },
   imageStyle: {
     height: 15,

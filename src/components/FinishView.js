@@ -8,8 +8,6 @@ import {
   Modal,
   TextInput,
   TouchableOpacity,
-  Easing,
-  ImageBackground,
 } from "react-native";
 import FastImage from "react-native-fast-image";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,25 +18,22 @@ import { userAction } from "../redux/action/userAction";
 import { useNavigation } from "@react-navigation/native";
 import navigationConstants from "../utils/navigationConstants";
 import { questions } from "../helper/dummyData";
+import fonts from "../utils/fonts";
 
 const FinishView = ({ finalScore }) => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
-  const uData = useSelector((state) => state?.user?.userData);
   const screenDimensions = Dimensions.get("screen");
   const styles = getStyles(screenDimensions);
   const quiz = useSelector((state) => state?.quiz?.quizData?.quizData);
   const quizItems = quiz ? quiz : questions;
   const percentageScore = ((finalScore / quizItems.length) * 100).toFixed(2);
 
-  console.log({ finalScore, quizItems });
-  // Animation state
   const [isModalVisible, setIsModalVisible] = useState(false);
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const [isImageVisible, setIsImageVisible] = useState(false);
   const [userName, setUserName] = useState("");
   const [userAge, setUserAge] = useState("");
-  const scaleAnim = useRef(new Animated.Value(1)).current; // Button scale animation
 
   useEffect(() => {
     if (percentageScore >= 70) {
@@ -52,9 +47,6 @@ const FinishView = ({ finalScore }) => {
       }, 1000);
       const modalTimer = setTimeout(() => {
         setIsModalVisible(true);
-        // uData
-        //   ? navigation.navigate(navigationConstants.PASSPORT)
-        //   : setIsModalVisible(true);
       }, 3000);
       return () => {
         clearTimeout(imageTimer);
@@ -168,7 +160,6 @@ const getStyles = (screenDimensions) => {
       alignItems: "center",
       backgroundColor: "transparent",
     },
-    // Apply a gradient background for more interaction
     gradientBackground: {
       position: "absolute",
       top: 0,
@@ -180,21 +171,21 @@ const getStyles = (screenDimensions) => {
       zIndex: -1,
     },
     endTitle: {
-      fontWeight: "bold",
       fontSize: isTablet ? 40 : 24,
       color: colors.white,
       textShadowColor: "rgba(0, 0, 0, 0.3)",
       textShadowOffset: { width: 2, height: 2 },
       textShadowRadius: 3,
+      fontFamily: fonts.SenBold,
     },
     scoreAnnouncement: {
-      fontWeight: "bold",
       fontSize: isTablet ? 60 : 32,
       color: colors.white,
       marginTop: 10,
       textShadowColor: "rgba(0, 0, 0, 0.3)",
       textShadowOffset: { width: 2, height: 2 },
       textShadowRadius: 3,
+      fontFamily: fonts.SenSemiBold,
     },
     resultContainer: {
       flex: 1,
@@ -203,21 +194,21 @@ const getStyles = (screenDimensions) => {
       width: "100%",
     },
     scorePercentage: {
-      fontWeight: "bold",
       fontSize: isTablet ? 40 : 24,
       marginTop: 10,
       color: colors.blue,
       textShadowColor: "rgba(0, 0, 0, 0.3)",
       textShadowOffset: { width: 2, height: 2 },
       textShadowRadius: 3,
+      fontFamily: fonts.SenMedium,
     },
     sorryMessage: {
-      fontWeight: "bold",
       fontSize: isTablet ? 40 : 24,
       color: "orange",
       textShadowColor: "rgba(0, 0, 0, 0.2)",
       textShadowOffset: { width: 2, height: 2 },
       textShadowRadius: 3,
+      fontFamily: fonts.SenMedium,
     },
     modalContainer: {
       flex: 1,
@@ -259,9 +250,6 @@ const getStyles = (screenDimensions) => {
     },
     submitButton: {
       backgroundColor: colors.primaryBlue,
-      // paddingVertical: 12,
-      // paddingHorizontal: 30,
-      // borderRadius: 10,
       shadowColor: "#000",
       shadowOffset: { width: 0, height: 4 },
       shadowOpacity: 0.3,

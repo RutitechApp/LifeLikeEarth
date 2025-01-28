@@ -7,12 +7,14 @@ export const fetchQuiz = (payload) => {
   return (dispatch) =>
     makeAPIRequest(GET, apiConst.getExoplanetQuiz(id), null, null, null)
       .then((res) => {
+        console.log("res", res);
         dispatch({
           type: GET_QUIZ_DATA_SUCCESS,
           payload: res?.data?.data,
         });
       })
       .catch((err) => {
+        console.log("err", err);
         dispatch({
           type: GET_EXOPLANETS_DATA_FAILED,
           payload: err,

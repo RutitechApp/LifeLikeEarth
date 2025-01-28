@@ -2,13 +2,12 @@ import React, { useEffect } from "react";
 import {
   StyleSheet,
   FlatList,
-  Image,
   ScrollView,
   View,
   ImageBackground,
   Text,
 } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import { fetchExoplanet } from "../../redux/action/exoplanetAction";
 import Header from "../../components/common/Header";
@@ -21,17 +20,19 @@ import FastImage from "react-native-fast-image";
 import fonts from "../../utils/fonts";
 import colors from "../../utils/colors";
 import navigationConstants from "../../utils/navigationConstants";
+import { Height, Width } from "../../utils/responsive";
+import { userInfoGet } from "../../redux/action/authAction";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
-  const data = useSelector((state) => state?.exoplanet?.exoplanetData);
 
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = () => {
+    dispatch(userInfoGet());
     dispatch(fetchExoplanet());
   };
 
@@ -41,7 +42,7 @@ const HomeScreen = () => {
       index={index}
       onPress={() =>
         navigation.navigate(navigationConstants.LIST, {
-          data: data?.filter((fItem) => fItem?.planetType === item?.name),
+          data: item?.typeName,
           header: item?.name,
         })
       }
@@ -51,8 +52,11 @@ const HomeScreen = () => {
   return (
     <Container>
       <Header />
-      <ScrollView>
-        <View style={{ marginHorizontal: 16 }}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        alwaysBounceVertical={false}
+      >
+        <View style={{ marginHorizontal: Width(16) }}>
           <ImageBackground
             source={imageConstants.bannerImage}
             style={style.banner}
@@ -76,7 +80,7 @@ const HomeScreen = () => {
         />
         <TitleHeader
           title={"You may also like"}
-          container={{ marginTop: 32, marginHorizontal: 20 }}
+          container={{ marginTop: Height(32), marginHorizontal: Width(20) }}
           onPress={() =>
             navigation.navigate(navigationConstants.LIST, {
               data: PlannetData,
@@ -97,8 +101,10 @@ const HomeScreen = () => {
             />
             <View>
               <Text style={style.textStyle}>Sun</Text>
-              <Text style={style.subTextStyle}>Yellow Dwarf</Text>
-              <Text style={style.subTextStyle}>
+              <Text style={[style.subTextStyle, { fontSize: Height(20) }]}>
+                Yellow Dwarf
+              </Text>
+              <Text style={[style.subTextStyle, { width: Width(200) }]}>
                 A dwarf planet travels around, or orbits, {"\n"}the Sun just
                 like other planets. {"\n"}But it is much smaller.
               </Text>
@@ -113,53 +119,49 @@ const HomeScreen = () => {
 export default HomeScreen;
 const style = StyleSheet.create({
   banner: {
-    height: 200,
+    height: Height(200),
     width: "100%",
     alignSelf: "center",
     justifyContent: "center",
+    marginTop: Height(20),
   },
   typeFlatListViewStyle: {
     alignItems: "center",
     justifyContent: "space-between",
   },
   imageBGStyle: {
-    height: 160,
-    width: 300,
+    height: Height(160),
+    width: Width(300),
     alignSelf: "center",
-    marginTop: 30,
-    paddingTop: 10,
+    marginTop: Height(30),
+    paddingTop: Height(10),
   },
   viewStyle: {
     flexDirection: "row",
     alignItems: "center",
+    bottom: Height(5),
   },
   sunImageStyle: {
-    height: 130,
-    width: 130,
-    marginLeft: -40,
+    height: Height(150),
+    width: Height(150),
+    marginLeft: Width(-60),
   },
   textStyle: {
-    fontSize: 24,
-    fontFamily: fonts.SpaceGroteskSemiBold,
+    fontSize: Height(25),
+    fontFamily: fonts.SenSemiBold,
     color: colors.white,
   },
   subTextStyle: {
-    fontSize: 12,
-    fontFamily: fonts.SpaceGroteskRegular,
+    fontSize: Height(12),
+    fontFamily: fonts.SenMedium,
     color: colors.white,
-  },
-  subTextStyle: {
-    fontSize: 10,
-    fontFamily: fonts.SpaceGroteskMedium,
-    color: colors.white,
-    lineHeight: 15,
     opacity: 0.5,
   },
   ttStyle: {
-    fontSize: 16,
+    fontSize: Height(16),
     color: colors.white,
-    fontFamily: fonts.SpaceGroteskBold,
-    marginTop: 55,
+    fontFamily: fonts.SenBold,
+    marginTop: Height(60),
     textAlign: "center",
     opacity: 0.8,
     textDecorationLine: "underline",

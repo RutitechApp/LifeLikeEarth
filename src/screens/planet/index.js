@@ -6,6 +6,7 @@ import SubHeader from "../../components/common/SubHeader";
 import FastImage from "react-native-fast-image";
 import fonts from "../../utils/fonts";
 import colors from "../../utils/colors";
+import { Height } from "../../utils/responsive";
 
 const PalnetScreen = () => {
   const route = useRoute();
@@ -29,32 +30,32 @@ const PalnetScreen = () => {
 export default PalnetScreen;
 const style = StyleSheet.create({
   planetNameStyle: {
-    fontSize: 32,
+    fontSize: Height(32),
     color: colors.white,
-    fontFamily: fonts.SpaceGroteskBold,
+    fontFamily: fonts.SenBold,
     textAlign: "center",
   },
   planetTypeStyle: {
-    fontSize: 20,
+    fontSize: Height(20),
     color: colors.white,
-    fontFamily: fonts.SpaceGroteskSemiBold,
+    fontFamily: fonts.SenSemiBold,
     textAlign: "center",
     opacity: 0.4,
-    marginTop: 14,
+    marginTop: Height(14),
   },
   descriptionStyle: {
-    fontSize: 14,
-    fontFamily: fonts.SpaceGroteskMedium,
+    fontSize: Height(14),
+    fontFamily: fonts.SenMedium,
     color: colors.white,
     textAlign: "justify",
-    lineHeight: 22,
-    marginTop: 20,
-    marginHorizontal: 23,
+    lineHeight: Height(22),
+    marginTop: Height(20),
+    marginHorizontal: Height(23),
   },
   imageStyle: {
-    height: 216,
-    width: 214,
+    height: Height(216),
+    width: Height(214),
     alignSelf: "center",
-    marginTop: 40,
+    marginTop: Height(40),
   },
 });

@@ -1,3 +1,19 @@
 export default {
-    
+  LIFELIKEEARTH: "Life Like Earth",
+  SIGNIN: "SIGN IN",
+  EMAIL: "Email",
+  PASSWORD: "Password",
+  FORGOTPASSWORD: "Forgot Password",
+  DONTHAVEANACCOUNT: "Don't Have An Account?",
+  SIGNUP: "SIGN UP",
+  FULLNAME: "Full Name",
+  PHONENUMBER: "Phone Number",
+  CONFIRMPASSWORD: "Confirm Password",
+  ALREADYHAVEANACCOUNT: "Already Have An Account?",
+  CONTINUE: "Continue",
+  VERIFYOTP: "Verify Otp",
+  RESENDCODE: "Resend Code",
+  SENDCODEAGAIN: "Send Code Again",
+  CREATENEWPASSWORD: "CREATE NEW PASSWORD",
+  SAVE: "Save",
 };

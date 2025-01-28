@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { Text, StyleSheet, Dimensions, Pressable } from "react-native";
 import colors from "../utils/colors";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import { Height, Width } from "../utils/responsive";
+import fonts from "../utils/fonts";
+
 export const OptionButton = ({
   fullWidth,
   buttonText,
-  width,
   disabled,
   type,
   onPress,
@@ -16,23 +19,16 @@ export const OptionButton = ({
   const onPressAnd = () => {
     setSelectedOption(buttonText);
     onPress(buttonText);
-    console.log({ buttonText, ans });
   };
   return (
     <Pressable
       style={[
         styles.button,
         {
-          width: width || "auto",
-          backgroundColor:
-            selectedOption == ""
-              ? "rgba(255, 255, 255, 0.4)"
-              : buttonText == ans
-              ? "green"
-              : "red",
-          borderWidth: 2,
-          borderColor: colors[type],
+          backgroundColor: "rgba(255, 255, 255, 0.13)",
+          borderColor: colors.primary,
           alignSelf: fullWidth ? "stretch" : "center",
+          borderWidth: Width(3),
         },
       ]}
       onPress={onPressAnd}
@@ -46,23 +42,44 @@ export const OptionButton = ({
       >
         {buttonText}
       </Text>
+      <MaterialCommunityIcons
+        name={
+          selectedOption
+            ? buttonText == ans
+              ? "checkbox-marked-circle"
+              : "close-circle"
+            : "checkbox-blank-circle-outline"
+        }
+        color={
+          selectedOption
+            ? buttonText == ans
+              ? colors.primary
+              : colors.red
+            : colors.white
+        }
+        size={Height(25)}
+        style={{ marginLeft: Width(10) }}
+      />
     </Pressable>
   );
 };
+
 const getStyles = (screenDimensions) => {
-  const isTablet = screenDimensions.width > 1000;
   const styles = StyleSheet.create({
     button: {
       justifyContent: "center",
       alignItems: "center",
-      padding: 10,
-      borderRadius: 20,
-      margin: 5,
+      padding: Width(15),
+      borderRadius: Width(15),
+      margin: Width(5),
+      flexDirection: "row",
+      justifyContent: "space-between",
+      width: "95%",
     },
     buttonText: {
-      fontWeight: "bold",
-      textTransform: "uppercase",
-      fontSize: isTablet ? 20 : 14,
+      fontSize: Height(14),
+      width: "90%",
+      fontFamily: fonts.SenMedium,
     },
   });
   return styles;

@@ -9,13 +9,14 @@ import imageConstants from "../../utils/imageConstants";
 import FastImage from "react-native-fast-image";
 import fonts from "../../utils/fonts";
 import colors from "../../utils/colors";
+import { Height, Width } from "../../utils/responsive";
 
 const CardView = ({ data, onPress }) => {
   return (
     <ImageBackground
       source={imageConstants.eCardImage}
       style={style.imageBGStyle}
-      resizeMode="contain"
+      resizeMode="stretch"
     >
       <FastImage
         source={{ uri: data?.planetImage }}
@@ -42,38 +43,38 @@ export default CardView;
 
 const style = StyleSheet.create({
   imageBGStyle: {
-    width: 182,
-    height: 242,
+    width: Width(182),
+    height: Height(250),
     alignItems: "center",
-    paddingVertical: 20,
-    marginTop: 30,
-    paddingHorizontal: 16,
+    paddingVertical: Height(20),
+    marginTop: Height(30),
+    paddingHorizontal: Width(16),
   },
   imageStyle: {
-    height: 113,
-    width: 133,
+    height: Height(113),
+    width: Width(133),
   },
   textStyle: {
-    fontSize: 20,
-    fontFamily: fonts.SpaceGroteskBold,
+    fontSize: Height(20),
+    fontFamily: fonts.SenBold,
     color: colors.white,
-    marginTop: 8,
+    marginTop: Height(8),
   },
   tStyle: {
-    fontSize: 14,
+    fontSize: Height(14),
     color: colors.white,
-    fontFamily: fonts.SpaceGroteskRegular,
+    fontFamily: fonts.SenRegular,
     opacity: 0.8,
   },
   subTextStyle: {
-    fontSize: 12,
+    fontSize: Height(12),
     color: colors.white,
-    fontFamily: fonts.SpaceGroteskLight,
+    fontFamily: fonts.SenRegular,
     opacity: 0.5,
   },
   arrowStyle: {
-    width: 42,
-    height: 6,
-    marginTop: 15,
+    width: Width(42),
+    height: Height(6),
+    marginTop: Height(15),
   },
 });

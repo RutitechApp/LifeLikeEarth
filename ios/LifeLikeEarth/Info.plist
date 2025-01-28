@@ -2,9 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-<key>NSPhotoLibraryAddUsageDescription</key>
-<string>We need your permission to save images to your photo library</string>
-
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>We need your permission to save images to your photo library</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -52,11 +51,47 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>AntDesign.ttf</string>
+		<string>Entypo.ttf</string>
+		<string>EvilIcons.ttf</string>
+		<string>Feather.ttf</string>
+		<string>FontAwesome.ttf</string>
+		<string>FontAwesome5_Brands.ttf</string>
+		<string>FontAwesome5_Regular.ttf</string>
+		<string>FontAwesome5_Solid.ttf</string>
+		<string>Fontisto.ttf</string>
+		<string>Foundation.ttf</string>
+		<string>Ionicons.ttf</string>
+		<string>MaterialCommunityIcons.ttf</string>
+		<string>MaterialIcons.ttf</string>
+		<string>Octicons.ttf</string>
+		<string>SimpleLineIcons.ttf</string>
+		<string>Zocial.ttf</string>
 		<string>SpaceGrotesk-Bold.ttf</string>
 		<string>SpaceGrotesk-Light.ttf</string>
 		<string>SpaceGrotesk-Medium.ttf</string>
 		<string>SpaceGrotesk-Regular.ttf</string>
 		<string>SpaceGrotesk-SemiBold.ttf</string>
+		<string>Archivo-Black.ttf</string>
+		<string>Archivo-Bold.ttf</string>
+		<string>Archivo-ExtraBold.ttf</string>
+		<string>Archivo-ExtraLight.ttf</string>
+		<string>Archivo-Light.ttf</string>
+		<string>Archivo-Medium.ttf</string>
+		<string>Archivo-Regular.ttf</string>
+		<string>Archivo-SemiBold.ttf</string>
+		<string>Archivo-Thin.ttf</string>
+		<string>CrimsonText-Bold.ttf</string>
+		<string>CrimsonText-BoldItalic.ttf</string>
+		<string>CrimsonText-Italic.ttf</string>
+		<string>CrimsonText-Regular.ttf</string>
+		<string>CrimsonText-SemiBold.ttf</string>
+		<string>CrimsonText-SemiBoldItalic.ttf</string>
+		<string>Sen-Bold.ttf</string>
+		<string>Sen-ExtraBold.ttf</string>
+		<string>Sen-Medium.ttf</string>
+		<string>Sen-Regular.ttf</string>
+		<string>Sen-SemiBold.ttf</string>
 	</array>
 </dict>
 </plist>

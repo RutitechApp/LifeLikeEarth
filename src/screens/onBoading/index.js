@@ -6,6 +6,7 @@ import Button from "../../components/common/Button";
 import { useNavigation } from "@react-navigation/native";
 import navigationConstants from "../../utils/navigationConstants";
 import fonts from "../../utils/fonts";
+import { Height, Width } from "../../utils/responsive";
 
 const OnBoadingScreen = () => {
   const navigation = useNavigation();
@@ -21,7 +22,7 @@ const OnBoadingScreen = () => {
         <Text style={style.subTextStyle}>{OnBoadingData?.[index].desc}</Text>
         <Button
           title={index === 2 ? "Get Started" : "Next"}
-          buttonStyle={{ marginTop: 60 }}
+          buttonStyle={{ marginTop: Height(80) }}
           onPress={() => {
             index === 2
               ? navigation.navigate(navigationConstants.HOME)
@@ -43,26 +44,28 @@ const style = StyleSheet.create({
     justifyContent: "center",
   },
   imageStyle: {
-    height: 342,
-    width: 342,
+    height: Height(342),
+    width: Height(342),
     alignSelf: "center",
-    marginTop: 130,
+    marginTop: Height(130),
   },
   textStyle: {
     color: colors.white,
-    fontSize: 32,
+    fontSize: Height(32),
     fontFamily: fonts.SpaceGroteskBold,
-    lineHeight: 44,
+    lineHeight: Height(44),
     textAlign: "center",
-    marginTop: 50,
-    marginHorizontal: 5,
+    marginTop: Height(50),
+    marginHorizontal: Width(5),
   },
   subTextStyle: {
     color: colors.white,
-    fontSize: 20,
+    fontSize: Height(18),
     fontFamily: fonts.SpaceGroteskBold,
     textAlign: "center",
-    marginTop: 450,
-    lineHeight: 28,
+    marginTop: Height(550),
+    lineHeight: Height(20),
+    marginHorizontal: Width(20),
+    opacity: 0.6,
   },
 });

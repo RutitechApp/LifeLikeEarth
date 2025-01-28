@@ -26,4 +26,5 @@ export default {
   galaxy: require("../assets/images/Galaxy.png"),
   stempSE: require("../assets/images/stemp_superEarth.png"),
   space: require("../assets/images/Space.png"),
+  getStarted: require("../assets/images/GetStarted.png"),
 };

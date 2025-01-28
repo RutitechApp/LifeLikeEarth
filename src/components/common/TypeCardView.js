@@ -39,7 +39,7 @@ const TypeCardView = ({ data, index, onPress }) => {
             style={{
               height: data?.id === 2 ? 100 : data?.id === 4 ? 120 : 110,
               aspectRatio: 1 / 1,
-              left: index % 2 === 0 ? -40 : data?.id === 2 ? 65 : 55,
+              left: index % 2 === 0 ? -40 : data?.id === 2 ? 75 : 65,
               top: -5,
             }}
             resizeMode="stretch"
@@ -75,14 +75,13 @@ const style = StyleSheet.create({
     width: Dimensions.get("screen").width / 2.5,
     paddingHorizontal: 10,
     marginTop: 15,
-
     alignSelf: "center",
     borderRadius: 8,
   },
   textStyle: {
     fontSize: 20,
     color: colors.white,
-    fontFamily: fonts.SpaceGroteskBold,
+    fontFamily: fonts.SenBold,
     lineHeight: 41,
     marginTop: 6,
     textAlign: "center",

@@ -9,4 +9,11 @@ export default {
   PLANET: "Planet",
   SPACE: "Space",
   PASSPORTLIST: "PassPortList",
+  SIGNIN: "SignIn",
+  GETSTARTED: "Get Started",
+  SIGNUP: "SignUp",
+  FORGOTPASSWORD: "ForgotPassword",
+  VERIFYOTP: "VerifyOtp",
+  NEWPASSWORD: "NewPassword",
+  FINISH: "Finish",
 };
